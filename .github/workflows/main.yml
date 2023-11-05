@@ -10,12 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Fetch Host Key
-        run: |
-          ssh-keyscan 156.67.222.51 >> /home/u593348281/.ssh/known_hosts
-          cat ~/.ssh/known_hosts
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
       - name: Checkout Repository
         uses: actions/checkout@v2
 
