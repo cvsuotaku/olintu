@@ -12,11 +12,9 @@ jobs:
     steps:
       - name: Start SSH agent
         run: eval `ssh-agent -s`
-      - name: Set Up SSH Key
+      - name: Add SSH private key to agent
         run: |
-          echo "$SSH_PRIVATE_KEY" > ssh_key
-          chmod 600 ssh_key
-          ssh-add ssh_key
+          ssh-add <(echo "$SSH_PRIVATE_KEY")
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
       - name: Checkout Repository
