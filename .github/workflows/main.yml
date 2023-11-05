@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Start SSH agent
+        run: eval `ssh-agent -s`
       - name: Set Up SSH Key
         run: |
           echo "$SSH_PRIVATE_KEY" > ssh_key
