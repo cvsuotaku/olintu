@@ -13,6 +13,11 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
+      - name: Set up SSH
+        uses: actions/setup-ssh@v3
+        with:
+          ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
       - name: Set Up PHP
         uses: shivammathur/setup-php@v2
         with:
@@ -27,15 +32,8 @@ jobs:
       - name: Generate Application Key
         run: php artisan key:generate
 
-      - name: Set Up SSH Key
-        run: |
-          echo "$SSH_PRIVATE_KEY" > ssh_key
-          chmod 600 ssh_key
-
       - name: Deploy
         run: |
-          eval $(ssh-agent -s)
-          ssh-add ssh_key
           sshpass -p ${{secrets.SSH_PASS}} ssh -o StrictHostKeyChecking=no -p 65002 u593348281@156.67.222.51 "cd /home/u593348281/domains/teachnurture.com/public_html/olintu && git pull origin main && composer install && php artisan migrate --force && php artisan config:cache && php artisan route:cache && php artisan view:cache"
         env:
           SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
