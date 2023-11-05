@@ -1,34 +1,41 @@
-name: Deploy to Hostinger
+name: Deploy Laravel 10 to Hostinger
 
 on:
   push:
     branches:
-      - main  # Change this to the branch you want to trigger the deployment
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-      - name: Set Up PHP
-        uses: shivammathur/setup-php@v2
+      - name: Set up SSH
+        uses: actions/setup-ssh@v3
         with:
-          php-version: 8.1  # Use PHP 8.1.2 if available in the setup options
+          ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          host-key-algorithm: ssh-rsa
 
-      - name: Install Composer Dependencies
-        run: composer install --no-ansi --no-interaction --no-progress --no-scripts
-
-      - name: Set Up Environment
-        run: cp .env.example .env
-
-      - name: Generate Application Key
-        run: php artisan key:generate
-
-      - name: Deploy
+      - name: Deploy to Hostinger
         run: |
-          ssh -o StrictHostKeyChecking=no -p 65002 u593348281@156.67.222.51 "cd /home/u593348281/domains/teachnurture.com/public_html/olintu && git pull origin main && composer install && php artisan migrate --force && php artisan config:cache && php artisan route:cache && php artisan view:cache"
-        env:
-          SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
+          ssh -p 65002 -o StrictHostKeyChecking=no u593348281@156.67.222.51 << EOF
+            cd public_html
+
+            git clone git@github.com:cvsuotaku/olintu.git .
+
+            composer update
+
+            composer install
+
+            php artisan install
+
+            php artisan migrate
+
+            php artisan key:generate
+
+            php artisan optimize
+
+            EOF
