@@ -29,6 +29,6 @@ jobs:
 
       - name: Deploy
         run: |
-          ssh -p 65002 u593348281@156.67.222.51 "cd /home/u593348281/domains/teachnurture.com/public_html/olintu && git pull origin main && composer install && php artisan migrate --force && php artisan config:cache && php artisan route:cache && php artisan view:cache"
+          ssh u593348281@156.67.222.51 "cd /home/u593348281/domains/teachnurture.com/public_html/olintu && git pull origin main && composer install && php artisan migrate --force && php artisan config:cache && php artisan route:cache && php artisan view:cache"
         env:
           SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
