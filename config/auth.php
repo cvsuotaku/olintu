@@ -1,23 +1,6 @@
 <?php
 
 return [
-
-    /*
-    |--------------------------------------------------------------------------
-    | Authentication Defaults
-    |--------------------------------------------------------------------------
-    |
-    | This option controls the default authentication "guard" and password
-    | reset options for your application. You may change these defaults
-    | as required, but they're a perfect start for most applications.
-    |
-    */
-
-    'defaults' => [
-        'guard' => 'web',
-        'passwords' => 'users',
-    ],
-
     /*
     |--------------------------------------------------------------------------
     | Authentication Guards
@@ -36,9 +19,14 @@ return [
     */
 
     'guards' => [
-        'web' => [
+        'professor' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'professors',
+        ],
+    
+        'student' => [
+            'driver' => 'session',
+            'provider' => 'students',
         ],
     ],
 
@@ -65,10 +53,15 @@ return [
             'model' => App\Models\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'professors' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Professor::class,
+        ],
+    
+        'students' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Student::class,
+        ],
     ],
 
     /*
@@ -93,6 +86,18 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => 'password_reset_tokens',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'professor' => [
+            'provider' => 'professors',
+            'table' => 'password_reset_tokens',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'student' => [
+            'provider' => 'students',
             'table' => 'password_reset_tokens',
             'expire' => 60,
             'throttle' => 60,

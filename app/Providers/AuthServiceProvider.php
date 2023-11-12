@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-// use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
@@ -16,11 +16,16 @@ class AuthServiceProvider extends ServiceProvider
         //
     ];
 
-    /**
-     * Register any authentication / authorization services.
-     */
-    public function boot(): void
+    public function boot()
     {
-        //
+        $this->registerPolicies();
+
+        Auth::provider('professor', function ($app, array $config) {
+            return new ProfessorServiceProvider($app['hash'], $config['model']);
+        });
+
+        Auth::provider('student', function ($app, array $config) {
+            return new StudentServiceProvider($app['hash'], $config['model']);
+        });
     }
 }
