@@ -1,0 +1,178 @@
+body {
+    font-family: Arial;
+    font-size: 1em;
+    color: #333;
+}
+
+h1 {
+    font-size: 1.4em;
+}
+
+em {
+    font-style: normal;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.run-button {
+    background: #57a958;
+    color: white;
+    cursor: pointer;
+    border: none;
+    width: 150px;
+    height: 35px;
+    border-radius: 2px;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 2px;
+}
+
+.run-button:hover {
+    background: #449c44;
+}
+
+.run-buttons {
+    background: black;
+    color: white;
+    cursor: pointer;
+    border: none;
+    width: 150px;
+    height: 50px;
+    border-radius: 2px;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 40px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    background-color: #eee;
+    font-weight: bold;
+}
+
+th,
+td {
+    border: 1px solid #DADADA;
+    line-height: 1.5;
+    padding: 0.75em;
+    text-align: left;
+}
+
+/* Stack rows vertically on small screens */
+@media (max-width: 30em) {
+
+    /* Hide column labels */
+    thead tr {
+        position: absolute;
+        top: -9999em;
+        left: -9999em;
+    }
+
+    tr {
+        border: 1px solid #DADADA;
+        border-bottom: 0;
+    }
+
+    /* Leave a space between table rows */
+    tr+tr {
+        margin-top: 1.5em;
+    }
+
+    /* Get table cells to act like rows */
+    tr,
+    td {
+        display: block;
+    }
+
+    td {
+        border: none;
+        border-bottom: 1px solid #DADADA;
+        /* Leave a space for data labels */
+        padding-left: 50%;
+    }
+
+    /* Add data labels */
+    td:before {
+        content: attr(data-label);
+        display: inline-block;
+        font-weight: bold;
+        line-height: 1.5;
+        margin-left: -100%;
+        width: 100%;
+    }
+}
+
+/* Stack labels vertically on smaller screens */
+@media (max-width: 20em) {
+    td {
+        padding-left: 0.75em;
+    }
+
+    td:before {
+        display: block;
+        margin-bottom: 0.75em;
+        margin-left: 0;
+    }
+}
+
+.run-buttons:hover {
+    background: #449c44;
+}
+
+
+.demo-code {
+    background: #F0F0F0;
+    width: auto;
+    padding: 15px;
+    color: brown;
+    border-radius: 5px;
+    border: 1px solid #DADADA;
+}
+
+/* Primary Styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.lead {
+    padding: .5em;
+    background: rgb(245, 248, 164);
+    color: rgb(81, 83, 11);
+    border-left: 1em solid rgb(81, 83, 11);
+
+}
+
+.main-section {
+    padding-bottom: 1em;
+    border-bottom: 1px solid green
+}
+
+.main-section p {
+    text-align: justify;
+}
+
+/* Layout */
+.s-layout {
+
+    overflow: auto;
+    display: flex;
+    float: left;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.s-layout__content {
+    flex: 1;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+

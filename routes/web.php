@@ -3,9 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\StudentController;
-use App\Http\Controllers\ProfessorController;
 use App\Http\Controllers\AuthController;
-
+use App\Http\Controllers\TopicController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,15 +24,11 @@ Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->na
 Route::post('/register', [RegisterController::class, 'register']);
 Route::view('/guest', 'dashboard')->name('guest');
 Route::view('/dashboard', 'dashboard')->name('dashboard');
-Route::middleware(['auth:professor'])->group(function () {
-    // Professor routes
-    Route::get('/professor/dashboard', [ProfessorController::class, 'dashboard'])->name('professor.dashboard');
-});
 Route::group(['middleware' => 'auth.student'], function() {
     Route::get('/student/dashboard', [StudentController::class, 'dashboard'])->name('student.dashboard');
 });
-
-// Route::middleware(['auth:student'])->group(function () {
-//     // Student routes
-//     Route::get('/student/dashboard', [StudentController::class, 'dashboard'])->name('student.dashboard');
-// });
+Route::view('/topic', [TopicController::class, 'topic'])->name('topic');
+Route::view('/contact', 'contact')->name('contact');
+Route::get('/open-topic/{value}', [TopicController::class, 'openTopic'])->name('open.topic');
+Route::view('/topic_one', 'topic_one')->name('topic_one');
+Route::view('/topic_two', 'topic_two')->name('topic_two');
