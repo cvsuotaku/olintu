@@ -18,11 +18,79 @@
             <h2 class="text-2xl font-semibold mb-4">Topics</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 <!-- Topic Card -->
-                <div class="bg-white p-4 rounded shadow">
-                    <h3 class="text-xl font-semibold mb-2">Php</h3>
-                    <p class="text-gray-600">Experience empowerment and career growth through innovative skill-building, Learn PHP now.</p>
-                    <a href="{{ route('topic') }}"  class="text-blue-500 hover:underline mt-2 inline-block">View</a>
+                <div class="p-4 rounded shadow" style="background: #FFDAC2;">
+                    <h3 class="text-3xl mb-2">Introduction to PHP</h3>
+                    <p class="text-gray-600 h-16">Learn the basic features of PHP</p>
+                    <button class="bg-black text-white px-4 py-2 my-2 mx-auto block rounded shadow">
+                        <a href="{{ route('dashboard.topic', ['value' => 1]) }}">
+                            Learn Now!
+                        </a>
+                    </button>
                 </div>
+                <div class="p-4 rounded shadow" style="background: #D6E6B0;">
+                    <h3 class="text-3xl mb-2">PHP Installation</h3>
+                    <p class="text-gray-600 h-16">Learn on how to install PHP on your device</p>
+                    <button class="bg-black text-white px-4 py-2 my-2 mx-auto block rounded shadow">
+                        <a href="{{ route('dashboard.topic', ['value' => 2]) }}">
+                            Learn Now!
+                        </a>
+                    </button>
+                </div>
+                <div class="p-4 rounded shadow" style="background: #D4C8C2;">
+                    <h3 class="text-3xl mb-2">PHP Common Use</h3>
+                    <p class="text-gray-600 h-16">Learn to perform system functions such as create, open, read and write.</p>
+                    <button class="bg-black text-white px-4 py-2 my-2 mx-auto block rounded shadow">
+                        <a href="{{ route('dashboard.topic', ['value' => 3]) }}">
+                            Learn Now!
+                        </a>
+                    </button>
+                </div>
+                <div class="p-4 rounded shadow" style="background: #E5EA85;">
+                    <h3 class="text-3xl mb-2">Introduction to Array</h3>
+                    <p class="text-gray-600 h-16">Learn on how to use different types of array and functions</p>
+                    <button class="bg-black text-white px-4 py-2 my-2 mx-auto block rounded shadow">
+                        <a href="{{ route('dashboard.topic', ['value' => 4]) }}">
+                            Learn Now!
+                        </a>
+                    </button>
+                </div>
+                <div class="p-4 rounded shadow" style="background: #F9DB99;">
+                    <h3 class="text-3xl mb-2">Web Concepts</h3>
+                    <p class="text-gray-600 h-16">Learn environmental variables such as html forms, method and files.</p>
+                    <button class="bg-black text-white px-4 py-2 my-2 mx-auto block rounded shadow">
+                        <a href="{{ route('dashboard.topic', ['value' => 5]) }}">
+                            Learn Now!
+                        </a>
+                    </button>
+                </div>
+                <div class="p-4 rounded shadow" style="background: #A5CF85;">
+                    <h3 class="text-3xl mb-2">Advanced PHP</h3>
+                    <p class="text-gray-600 h-16">Learn on how to predefined variables such as server variables, expressions and descriptions</p>
+                    <button class="bg-black text-white px-4 py-2 my-2 mx-auto block rounded shadow">
+                        <a href="{{ route('dashboard.topic', ['value' => 6]) }}">
+                            Learn Now!
+                        </a>
+                    </button>
+                </div>
+                <div class="p-4 rounded shadow" style="background: #E6C9FB;">
+                    <h3 class="text-3xl mb-2">Database Connection</h3>
+                    <p class="text-gray-600 h-16">Learn to opening and closing, and connecting data</p>
+                    <button class="bg-black text-white px-4 py-2 my-2 mx-auto block rounded shadow">
+                        <a href="{{ route('dashboard.topic', ['value' => 7]) }}">
+                            Learn Now!
+                        </a>
+                    </button>
+                </div>
+                <div class="p-4 rounded shadow" style="background: #E0FEB3;">
+                    <h3 class="text-3xl mb-2">OOP Concept</h3>
+                    <p class="text-gray-600 h-16">Lean concepts such as objects, inheritance and abstraction.</p>
+                    <button class="bg-black text-white px-4 py-2 my-2 mx-auto block rounded shadow">
+                        <a href="{{ route('dashboard.topic', ['value' => 8]) }}">
+                            Learn Now!
+                        </a>
+                    </button>
+                </div>
+
                 <!-- Repeat for other topics -->
             </div>
         </section>
@@ -121,6 +189,15 @@
                         <span class="sr-only">Next</span>
                     </span>
                 </button>
+            </div>
+
+        </section>
+
+        <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4">Compiler</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1">
+                @include('ide')
             </div>
 
         </section>

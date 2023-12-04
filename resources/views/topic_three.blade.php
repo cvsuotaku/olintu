@@ -53,7 +53,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide20')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 3, 'exercise' => 1]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
         <p class="lead">Note: You must have an existing file in your folder so that you can open, read and close it, just like the example above where the file name is olintumessage.txt</p>
     </section>

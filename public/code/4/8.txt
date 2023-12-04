@@ -1,0 +1,7 @@
+<?php
+function greetings(){
+ echo 'Dangal greetings!!!';
+}
+greetings();
+
+?>

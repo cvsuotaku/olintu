@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<body>
+<?php
+   $somevar = 15;
+   function addit()
+   {
+   GLOBAL $somevar;
+   $somevar++;
+   print "Somevar is $somevar";
+   }
+   addit();
+?>
+</html>
+</body>

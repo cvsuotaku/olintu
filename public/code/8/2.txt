@@ -1,0 +1,31 @@
+<?php
+class Mobile {
+ /* Member variables */
+ var $price;
+ var $brand;
+ /* Member functions */
+ function setPrice($param){
+ $this->price = $param;
+ }
+ function getPrice(){
+ echo $this->price ."<br/>";
+ }
+ function setBrand($param){
+ $this->brand= $param;
+ }
+ function getBrand(){
+ echo $this->brand." <br/>";
+ }
+ }
+$Samsung = new Mobile();
+$Iphone = new Mobile();
+$Samsung->setBrand( "SamsungS8" );
+$Iphone->setBrand( "Iphone7s" );
+$Samsung->setPrice( 90000 );
+$Iphone->setPrice( 65000 );
+//Now you call another member functions to get the values set by in above example
+$Samsung->getBrand();
+$Iphone->getBrand();
+$Samsung->getPrice();
+$Iphone->getPrice();
+?>

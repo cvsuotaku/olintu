@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<body>
+<?php  
+    $x1=1;
+    do {
+    echo "Increment Number : $x1 <br />";
+    $x1=$x1+1;
+    }while ($x1<=5)
+?>
+</html>
+</body>

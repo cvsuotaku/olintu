@@ -1,0 +1,7 @@
+<?php
+
+$animal = array("Cat", "Dog", "Jaguar", "Tiger", "Lion");
+
+echo "$animal[3]";
+
+?>

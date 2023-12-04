@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body>
+<?php
+     echo "Here is how to calculate in PHP"?><br>
+<?php
+     $enstudents =
+     23;
+     $notenstudents
+     = 27;
+
+     $students = $enstudents      +           $notenstudents;
+     echo "The number of students is ",
+
+     $students, ", there are 23 enrolled and 27 not enrolled";?>
+</html>
+</body>

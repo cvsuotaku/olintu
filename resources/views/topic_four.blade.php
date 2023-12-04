@@ -57,7 +57,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide21')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 4, 'exercise' => 1]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
         <p>The code above create variable of <code style="background: #F0F0F0; border-radius: 4px; padding: 3px;">$animal</code> which stores an array of 5 elements. The <code style="background: #F0F0F0; border-radius: 4px; padding: 3px;">var_dump($animal)</code> keyword above will show us the </p>
 
@@ -87,7 +89,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide22')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 4, 'exercise' => 2]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
 
         <p class="lead">The <code style="background: khaki; border-radius: 4px; padding: 3px;">var_dump( )</code> is a user defined function that gives displays structured information about one or more expressions that includes its type and value.</p>
@@ -139,7 +143,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide23')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 4, 'exercise' => 3]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
     </section>
 
@@ -187,7 +193,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide24')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 4, 'exercise' => 4]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
         <p class="lead">Remember, an array starts counting from <b>index 0</b>. The code above is an example of a multidimensional array because it contains more than one array <b>(an array of arrays)</b> with one single variable of $staff. The <code style="background: khaki; border-radius: 4px; padding: 3px;">echo $staff [2] ["Email"]</code> displays the email of the staff that falls into the <b>index of 2</b>.</p>
 
@@ -228,7 +236,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide25')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 4, 'exercise' => 5]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
         <br>
 
@@ -318,7 +328,9 @@
                     </code>
                 </div>
                 <br>
-                <button class="run-button" onclick="window.open('compiler/ide26')">try this code</button>
+                <a href="{{ route('ide', ['topic' => 4, 'exercise' => 6]) }}" target="_blank">
+                    <button class="run-button">try this code</button>
+                </a>
                 <br>
                 <br>
 
@@ -353,7 +365,9 @@
                     </code>
                 </div>
                 <br>
-                <button class="run-button" onclick="window.open('compiler/ide27')">try this code</button>
+                <a href="{{ route('ide', ['topic' => 4, 'exercise' => 7]) }}" target="_blank">
+                    <button class="run-button">try this code</button>
+                </a>
                 <br>
 
 
@@ -423,7 +437,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide28')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 4, 'exercise' => 8]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
         <br>
         <b>PHP Function Arguments</b>
@@ -450,7 +466,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide29')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 4, 'exercise' => 9]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
         <br>
         <b>PHP Functions - Returning Value</b>
@@ -465,7 +483,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide30')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 4, 'exercise' => 10]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
         <br>
         <b>Passing Arguments By Reference</b>
@@ -482,7 +502,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide31')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 4, 'exercise' => 11]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
 
     </section>

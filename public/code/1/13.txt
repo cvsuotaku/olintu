@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<body>
+<?php  
+$nm = NULL;
+echo $nm;    // this will return no output
+ 
+// return data type
+var_dump($nm);;
+?>
+</html>
+</body>

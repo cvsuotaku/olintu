@@ -37,12 +37,14 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide1')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 1, 'exercise' => 1]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
         <p>Instead of lots of commands to output HTML, PHP pages contain HTML with embedded code. The PHP code is enclosed in special start and end processing instructions that allow you to jump into and out of "PHP mode."</p>
         <ul>
             <li>starts with <b>
-                    </b><b>?php</b></li>
+                </b><b>?php</b></li>
             <br>
             <li>ends with <b>?></b></li>
         </ul>
@@ -120,19 +122,19 @@
             <p><b>1. &nbsp; &nbsp;</b>Canonical PHP Tags</p>
             <ul>
                 <b>
-                    </b><b>?php … ?></b>
+                </b><b>?php … ?></b>
             </ul>
             <br>
             <p><b>2. &nbsp; &nbsp;</b>SGML-Style Tags (Short-open)</p>
             <ul>
                 <b>
-                    </b><b>? … ?></b>
-                        <p>Short tags are, as one might expect, the shortest option You must do one of two things to enable PHP to recognize the tags: </p>
-                        <ul>
-                            <li>Choose the --enable-short-tags configuration option when you're building PHP.</li>
-                            <br>
-                            <li>Set the short_open_tag setting in your php.ini file to on. This option must be disabled to parse XML with PHP because the same syntax is used for XML tags. </li>
-                        </ul>
+                </b><b>? … ?></b>
+                <p>Short tags are, as one might expect, the shortest option You must do one of two things to enable PHP to recognize the tags: </p>
+                <ul>
+                    <li>Choose the --enable-short-tags configuration option when you're building PHP.</li>
+                    <br>
+                    <li>Set the short_open_tag setting in your php.ini file to on. This option must be disabled to parse XML with PHP because the same syntax is used for XML tags. </li>
+                </ul>
             </ul>
             <p><b>3. &nbsp; &nbsp;</b>ASP-style tags</p>
             <ul>
@@ -233,7 +235,9 @@
         </div>
 
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide2')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 1, 'exercise' => 2]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
         <header>
             <h3>PHP is whitespace insensitive </h3>
@@ -266,7 +270,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide3')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 1, 'exercise' => 3]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
         <header>
             <h3>Statements are expressions terminated by semicolons</h3>
@@ -377,7 +383,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide7')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 1, 'exercise' => 4]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
         <b>Variable Naming</b>
         <p>Rules for naming a variable is: </p>
@@ -419,7 +427,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide8')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 1, 'exercise' => 5]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
         <ul>
             <li>Function parameters</li>
@@ -451,7 +461,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide9')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 1, 'exercise' => 6]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
         <ul>
             <li>Global variables</li>
@@ -482,7 +494,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide10')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 1, 'exercise' => 7]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
         <ul>
             <li>Static Variables </li>
@@ -516,7 +530,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide11')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 1, 'exercise' => 8]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
     </section>
 
@@ -554,7 +570,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide4')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 1, 'exercise' => 9]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
         <p><b>Boolean. </b>They have only two possible values either true or false. PHP provides a couple of constants especially for use as Booleans: TRUE and FALSE, which can be used like so:</p>
         <div class="demo-code">
@@ -575,7 +593,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide5')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 1, 'exercise' => 10]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
         <b>Interpreting other types as Booleans</b>
         <p>Here are the rules for determine the "truth" of any value not already of the Boolean type:</p>
@@ -681,7 +701,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide6')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 1, 'exercise' => 11]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
         <p><b>Objects. </b>are defined as instances of user-defined classes that can hold both values and functions and information for data processing specific to the class. This is an advanced topic and will be discussed in detail in further articles. When the objects are created, they inherit all the properties and behaviours from the class, having different values for all the properties.</p>
         <p>Objects are explicitly declared and created from the new keyword.</p>
@@ -705,7 +727,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide12')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 1, 'exercise' => 12]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
         <br>
         <b>The special data types are:</b>
@@ -728,14 +752,16 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide13')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 1, 'exercise' => 13]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
         <p><b>Resources:</b> Resources in PHP are not an exact data type. These are basically used to store references to some function call or to external PHP resources. For example, consider a database call. This is an external resource. Resource variables hold special handles for files and database connections.
             We will discuss resources in detail in further articles</p>
         <p class="lead">To check the type and value of an expression, use the <code style="background: khaki; border-radius: 4px; padding: 3px;">var_dump()</code> function which dumps information about a variable. <br>PHP allows the developer to cast the data type.</p>
     </section>
 
-    <div id="consants"></div>
+    <div id="constants"></div>
     <section class="main-section">
         <header>
             <h3>Constants</h3>
@@ -762,7 +788,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide14')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 1, 'exercise' => 14]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
         <p class="lead">Only scalar data <code style="background: khaki; border-radius: 4px; padding: 3px;">(boolean, integer, float and string)</code> can be contained in constants.</p>
         <b>Differences between constants and variables are:</b>
@@ -1164,7 +1192,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide15')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 1, 'exercise' => 15]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
 
 
@@ -1207,7 +1237,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide16')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 1, 'exercise' => 16]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
         <ul>
             <li>do...while - loops through a block of code once, and then repeats the loop as long as the specified condition is true</li>
@@ -1235,7 +1267,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide17')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 1, 'exercise' => 17]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
         <ul>
             <li>for - loops through a block of code a specified number of times</li>
@@ -1266,7 +1300,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide18')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 1, 'exercise' => 18]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
         <ul>
             <li>foreach - loops through a block of code for each element in an array</li>
@@ -1292,7 +1328,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide19')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 1, 'exercise' => 19]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
     </section>
 
@@ -1305,7 +1343,9 @@
         <center>
             <p>You should test your knowledge based on the quiz provided</p>
             <p>This will not take any longer and no time limit it's your chance to remember what you study.</p>
-            <button class="run-buttons" onclick="window.open('quiz/introduction_to_php_quiz')">take this quiz</button>
+            <a href="{{ route('quiz', ['topic' => 1]) }}" target="_blank">
+                <button class="run-buttons">take this quiz</button>
+            </a>
         </center>
 
     </section>

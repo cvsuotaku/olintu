@@ -36,7 +36,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide32')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 5, 'exercise' => 1]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
     </section>
 
@@ -400,7 +402,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide33')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 5, 'exercise' => 2]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
         <br>
         <b>Writing a file</b>
@@ -416,7 +420,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide34')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 5, 'exercise' => 3]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
         <br>
 
@@ -526,7 +532,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide35')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 5, 'exercise' => 4]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
         <br>
         <b>Accessing Cookies with PHP</b>
@@ -545,7 +553,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide36')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 5, 'exercise' => 5]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
         <br>
         <p>You can use <code style="background: #F0F0F0; border-radius: 4px; padding: 3px;">isset()</code> function to check if a cookie is set or not.</p>
@@ -559,7 +569,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide37')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 5, 'exercise' => 6]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
         <br>
         <b>Deleting Cookie with PHP</b>
@@ -586,7 +598,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide38')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 5, 'exercise' => 7]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
         <br>
         <b>PHP Sessions</b>
@@ -638,7 +652,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide39')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 5, 'exercise' => 8]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
         <br>
         <b>Destroying a PHP Session</b>
@@ -691,7 +707,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide40')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 5, 'exercise' => 9]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
         <br>
         <p class="lead">The <code style="background: khaki; border-radius: 4px; padding: 3px;">htmlspecialchars()</code> may be used when printing the SID in order to prevent XSS related attacks</p>

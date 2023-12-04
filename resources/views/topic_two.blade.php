@@ -42,7 +42,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide1')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 2, 'exercise' => 1]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
     </section>
     <br>

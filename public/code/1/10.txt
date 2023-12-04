@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<body>
+<?php
+
+if (TRUE)
+print("Welcome to Pamantasan ng Cabuyao<br>");
+else
+print("Dangal Greetings!!!<br>");
+
+?>
+</html>
+</body>

@@ -69,7 +69,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide48')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 8, 'exercise' => 1]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
         <p class="lead">To create php object we have to use a new operator. Here php object is the object of the Students Class.</p>
     </section>
@@ -111,7 +113,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide49')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 8, 'exercise' => 2]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
     </section>
 
@@ -151,7 +155,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide50')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 8, 'exercise' => 3]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
         <br>
         <p><b>MultiLevel Inheritance :</b> In MultiLevel Inheritance, the parent class method will be inherited by child class and again subclass will inherit the child class method.</p>
@@ -176,7 +182,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide51')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 8, 'exercise' => 4]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
 
     </section>
@@ -232,7 +240,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide52')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 8, 'exercise' => 5]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
         <p class="lead">Interface can be extended with another interface using extends keyword.</p>
         <p>Example:</p>
@@ -253,7 +263,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide53')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 8, 'exercise' => 6]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
         <br>
         <b>Note on Interfaces:-</b>
@@ -301,7 +313,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide54')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 8, 'exercise' => 7]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
         <br>
         <b>Notes on Abstract classes</b>
@@ -423,7 +437,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide55')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 8, 'exercise' => 8]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
     </section>
 

@@ -1,0 +1,14 @@
+<?php
+
+$student_age = array (
+"Marta" => 27,
+"Allen" => 28,
+"Pedro" => 26,
+"Alex" => 27,
+);
+echo $student_age ["Marta"]; //this code will display the age of Marta as 27
+echo $student_age ["Allen"]; //this code will display the age of Allen as 28
+echo $student_age ["Pedro"]; //this code will display the age of Pedro as 26
+echo $student_age ["Alex"]; //this code will display the age of Alex as 27
+
+?>

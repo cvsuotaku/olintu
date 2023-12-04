@@ -6,7 +6,7 @@
             <h1>SERVER SIDE SCRIPTING</h1>
         </center>
     </div>
-    <div id="concepts"></div>
+    <div id="variables"></div>
     <section class="main-section">
         <header>
             <h3>Advanced PHP</h3>
@@ -637,7 +637,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide41')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 6, 'exercise' => 1]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
         <p class="lead">This way you can write an efficient code. Using above technique you can stop your program whenever it errors out and display more meaningful and user friendly message.</p>
         <br>
@@ -836,7 +838,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide42')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 6, 'exercise' => 2]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
         <p>In the above example <code style="background: #F0F0F0; border-radius: 4px; padding: 3px;">$e->getMessage</code> function is used to get error message. There are following functions which can be used from <b>Exception</b> class.</p>
         <ul>
@@ -875,7 +879,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide43')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 6, 'exercise' => 3]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
     </section>
 
@@ -924,7 +930,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide44')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 6, 'exercise' => 4]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
         <br>
         <p class="lead">This is something difficult to understand. But PHP offers ex cellent tools to convert a time stamp into a form that humans are comfortable with.</p>
@@ -1018,7 +1026,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide45')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 6, 'exercise' => 5]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
 
         <br>
@@ -1173,7 +1183,9 @@
             </code>
         </div>
         <br>
-        <button class="run-button" onclick="window.open('compiler/ide46')">try this code</button>
+        <a href="{{ route('ide', ['topic' => 6, 'exercise' => 6]) }}" target="_blank">
+            <button class="run-button">try this code</button>
+        </a>
         <br>
         <p class="lead">Hope you have good understanding on how to format date and time according to your requirement.</p>
     </section>

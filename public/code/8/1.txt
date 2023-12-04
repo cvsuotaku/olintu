@@ -1,0 +1,16 @@
+<?php
+class Students{
+public function name(){
+ echo "Juan Dela Cruz";
+ }
+ public function grade(){
+ echo "English: 2.75";
+ }
+}
+$obj = new Students();
+$obj->name();
+echo "<br>";
+$obj->grade();
+
+
+?>

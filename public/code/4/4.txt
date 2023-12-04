@@ -1,0 +1,28 @@
+<?php
+
+
+$staffs = [
+    [
+        "Name" => "John Santos",
+        "Reg_No" => "2012345",
+        "Email" => "johnsantos@gmail.com"
+    ],
+    [
+        "Name" => "Edward San Jose",
+        "Reg_No" => "2254569",
+        "Email" => "edwardsanjose@gmail.com"
+    ],
+    [
+        "Name" => "Jojie Gonzales",
+        "Reg_No" => "2169854",
+        "Email" => "jojiegonzales@gmail.com"
+    ]
+];
+
+echo $staffs[2]["Email"];
+echo "<br>"; // Displays the email of the last staff, which is jojiegonzales@gmail.com
+echo $staffs[0]["Name"]; // Displays the name of the first staff, which is John Santos
+
+
+
+?>

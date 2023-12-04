@@ -1,0 +1,10 @@
+<?php
+$intArray = array( 10, 20 , 30);
+ 
+echo "First Element: $intArray[0]<br>";
+echo "Second Element: $intArray[1]<br>";
+echo "Third Element: $intArray[2]<br><br>";
+ 
+//returns data type and value
+var_dump($intArray);
+?>

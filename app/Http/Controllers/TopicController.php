@@ -3,10 +3,26 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class TopicController extends Controller
 {
     protected $topicContent;
+    protected $dashboardTopic;
+    protected $userAttributesJson;
+    protected $isStudent = false;
+
+    public function openDashboardTopic($value)
+    {
+        $dashboardTopic = ['selectedTopic' => $value];
+        $isStudent  = Session::get('user') != null;
+        if ($isStudent) {
+            $userAttributesJson = json_encode(Session::get('user', []));
+            return view('topic', compact('dashboardTopic', 'userAttributesJson', 'isStudent'));
+        } else {
+            return view('topic', compact('dashboardTopic','isStudent'));
+        }
+    }
 
 
     public function openTopic($value)

@@ -23,7 +23,7 @@ class StudentAuthenticate
          
         //  dd($isAuthenticated);
         // dd($request->session()->all());
-         if ($isAuthenticated) {
+         if ($student) {
             return $next($request);
         }
 

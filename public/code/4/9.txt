@@ -1,0 +1,8 @@
+<?php
+function greetings($msg){
+echo $msg;
+}
+greetings("Dangal greetings");
+greetings("\nHow's your day");
+
+?>
