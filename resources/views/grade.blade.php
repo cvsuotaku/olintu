@@ -13,13 +13,17 @@
             <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Your Grade is:</h1>
             <p class="lg:w-1/2 w-full leading-relaxed text-gray-500">
                 Topic {{ $grade->TOPIC }} - Score {{$grade->SCORE}}
+                <br>
+                PERCENT {{$grade->PERCENTAGE}}
             </p>
         </div>
 
         <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
             <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">"Education is the passport to the future." - Malcolm X</h1>
         </div>
+    <a href="{{ route('guest')}}">back</a>
 
     </div>
 </section>
 @endsection
+
