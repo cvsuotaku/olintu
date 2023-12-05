@@ -1199,8 +1199,9 @@
         <center>
             <p>You should test your knowledge based on the quiz provided</p>
             <p>This will not take any longer and no time limit it's your chance to remember what you study.</p>
-            <button class="run-buttons" onclick="window.open('quiz/introduction_to_php_quiz')">take this quiz</button>
+            <a href="{{ route('quiz', ['topic' => 6]) }}" target="_blank">
+                <button class="run-buttons">take this quiz</button>
+            </a>
         </center>
-    </section>
 </main>
 @endsection
