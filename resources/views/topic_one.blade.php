@@ -2,16 +2,21 @@
 @section('content')
 <main id="main-doc" class="col-md-10 s-layout__content">
     <div>
+        <br>
         <center style="color: white; background: #0F6735; width: auto; height: 50px; padding: 1px; font-family: Arial;">
             <h1>SERVER SIDE SCRIPTING</h1>
         </center>
     </div>
+    <br>
+    <br>
     <div id="introduction"></div>
     <section class="main-section">
         <header>
-            <h3>Introduction to PHP</h3>
+            <b>Introduction to PHP</b>
         </header>
+        <br>
         <p>PHP is a open source general-purpose scripting language that is specially designed for web development and can be embedded into HTML. The term PHP is an acronym for PHP: Hypertext Preprocessor. PHP is a server-side scripting language designed specifically for web development. It is open-source which means it is free to download and use. It is very simple to learn and use. The files have the extension <code style="background: #F0F0F0; border-radius: 4px; padding: 3px;">“.php”</code>. </p>
+        <br>
         <div class="demo-code ">
             <code>
                 <span style="color: black">
@@ -41,13 +46,14 @@
             <button class="run-button">try this code</button>
         </a>
         <br>
+        <br>
         <p>Instead of lots of commands to output HTML, PHP pages contain HTML with embedded code. The PHP code is enclosed in special start and end processing instructions that allow you to jump into and out of "PHP mode."</p>
         <ul>
-            <li>starts with <b>
-                </b><b>?php</b></li>
             <br>
+            <li>starts with <b>?php</b></li>
             <li>ends with <b>?></b></li>
         </ul>
+        <br>
 
         <p>It was first created in 1994 by Rasmus Lerdorf to build his personal website. It became popular later, in 1997/1998, and exploded in the 2000s when PHP 4 landed.</p>
         <br>
@@ -79,7 +85,8 @@
     <div id="features"></div>
     <section class="main-section">
         <header>
-            <h3>Features</h3>
+            <b>Features</b>
+            <br>
         </header>
         <ul>
             <li>PHP is used to manage dynamic content, databases, session tracking, even build entire e-commerce sites. </li>
@@ -115,9 +122,11 @@
     <div id="syntax"></div>
     <section class="main-section">
         <header>
-            <h3>PHP Syntax Overview</h3>
+            <b>PHP Syntax Overview</b>
+            <br>
         </header>
         <p>Four ways of Escaping to PHP</p>
+        <br>
         <ul>
             <p><b>1. &nbsp; &nbsp;</b>Canonical PHP Tags</p>
             <ul>
@@ -159,7 +168,8 @@
     <div id="comments"></div>
     <section class="main-section">
         <header>
-            <h3>Commenting PHP Code</h3>
+            <b>Commenting PHP Code</b>
+            <br>
         </header>
         <p>A <code style="background: #F0F0F0; border-radius: 4px; padding: 3px;">comment</code> is the portion of a program that exists only for the human reader and stripped out before displaying the programs result. There are two commenting formats in PHP: </p>
         <p><b>Single-line comments:</b> They are generally used for short explanations or notes relevant to the local code. Here are the examples of single line comments.</p>
@@ -211,7 +221,8 @@
     <div id="sensitive"></div>
     <section class="main-section">
         <header>
-            <h3>PHP is case sensitive</h3>
+            <b>PHP is case sensitive</b>
+            <br>
         </header>
         <p>Just like other languages such as C# or Java, PHP is a case sensitive language.</p>
         <p>PHP is <b>partially case-sensitive</b>. Knowing what are case sensitive and what is not is very important to avoid syntax errors.</p>
@@ -240,7 +251,8 @@
         </a>
         <br>
         <header>
-            <h3>PHP is whitespace insensitive </h3>
+            <b>PHP is whitespace insensitive </b>
+            <br>
         </header>
         <p>The rules of PHP are lenient on whitespaces. This feature is significant in web design in achieving minimalism on the front end. It is also vital as far as coding is concerned.</p>
         <p>It includes things like spaces, carriage returns, tabs, and others which leave blanks. PHP is insensitive to spaces; whether you leave one or ten or a thousand steps, the parser ignores them. For instance, find the fault in the code below:</p>

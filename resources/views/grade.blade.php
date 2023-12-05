@@ -16,7 +16,7 @@
                 <br>
                 PERCENT {{$grade->PERCENTAGE}}%
                 <br>
-    <p>Bloom's Taxonomy Level: {{ $grade->TAXONOMY_LEVEL }}</p>
+                Bloom's Taxonomy Level: {{ $grade->TAXONOMY_LEVEL }}
 
             </p>
         </div>
