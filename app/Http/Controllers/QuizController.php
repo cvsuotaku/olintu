@@ -56,8 +56,11 @@ class QuizController extends Controller
             $percentage = ($gradeCounter / count($questions)) * 75;
             $taxonomyLevel = $this->calculateTaxonomyLevel($percentage);
 
+            // Generate a new Grade ID
+            $gradeId = (string) Str::uuid();
+
             $grade = new Grade([
-                'GRADE_ID' => (string) Str::uuid(),
+                'GRADE_ID' => $gradeId,
                 'STUDENT_ID' => (string) Str::uuid(),
                 'TOPIC' => $questions[0]['topic'],
                 'SCORE' => $gradeCounter . ' out of ' . count($questions),
@@ -78,4 +81,5 @@ class QuizController extends Controller
             return response()->json(['success' => false, 'message' => 'An error occurred while grading the quiz.']);
         }
     }
+
 }
