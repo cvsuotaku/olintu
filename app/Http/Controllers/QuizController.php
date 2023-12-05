@@ -18,22 +18,24 @@ class QuizController extends Controller
         $questions = Quiz::getByTopic($topic)->map->getAttributes()->shuffle()->all();
         return view('quiz', compact('questions'));
     }
-    private function calculateTaxonomyLevel($percentage)
+
+    public function calculateTaxonomyLevel($percentage)
     {
-        if ($percentage < 30) {
+        if ($percentage <= 30) {
             return 'Remember';
-        } elseif ($percentage < 50) {
+        } elseif ($percentage <= 50) {
             return 'Understand';
-        } elseif ($percentage < 70) {
+        } elseif ($percentage <= 70) {
             return 'Apply';
-        } elseif ($percentage < 90) {
+        } elseif ($percentage <= 90) {
             return 'Analyze';
-        } elseif ($percentage < 95) {
+        } elseif ($percentage <= 95) {
             return 'Evaluate';
         } else {
             return 'Create';
         }
     }
+
     public function gradeQuiz(Request $request)
     {
         try {
@@ -41,7 +43,7 @@ class QuizController extends Controller
             $questions = $request->input('questions');
             $indexCounter = 0;
             $gradeCounter = 0;
-    
+
             foreach ($questions as $question) {
                 if (!empty($question) && isset($answers[$indexCounter])) {
                     if ($question['answer'] == $answers[$indexCounter]) {
@@ -50,31 +52,25 @@ class QuizController extends Controller
                 }
                 $indexCounter++;
             }
-    
+
             $percentage = ($gradeCounter / count($questions)) * 75;
             $taxonomyLevel = $this->calculateTaxonomyLevel($percentage);
-    
-            if (!empty($questions) && isset($questions[0])) {
-                $gradeId = (string) Str::uuid();
-                $grade = new Grade([
-                    'GRADE_ID' => $gradeId,
-                    'STUDENT_ID' => (string) Str::uuid(),
-                    'TOPIC' => $questions[0]['topic'],
-                    'SCORE' => $gradeCounter . ' out of ' . count($questions),
-                    'PERCENTAGE' => $percentage,
-                    'TAXONOMY_LEVEL' => $taxonomyLevel,
-                ]);
-    
-                $grade->save();
-    
-                Session::put('grade', $gradeId);
-    
-                // Pass taxonomy level to the view
-                return response()->json(['success' => true, 'message' => $gradeId, 'taxonomyLevel' => $taxonomyLevel]);
 
-            } else {
-                throw new ModelNotFoundException('No questions found for grading.');
-            }
+            $grade = new Grade([
+                'GRADE_ID' => (string) Str::uuid(),
+                'STUDENT_ID' => (string) Str::uuid(),
+                'TOPIC' => $questions[0]['topic'],
+                'SCORE' => $gradeCounter . ' out of ' . count($questions),
+                'PERCENTAGE' => $percentage,
+                'TAXONOMY_LEVEL' => $taxonomyLevel,
+            ]);
+
+            $grade->save();
+
+            Session::put('grade', $gradeId);
+
+            // Pass taxonomy level to the view
+            return response()->json(['success' => true, 'message' => $gradeId, 'taxonomyLevel' => $taxonomyLevel]);
         } catch (\Exception $e) {
             // Log or dd() the exception message to see what's going wrong
             Log::error($e->getMessage());
@@ -82,7 +78,4 @@ class QuizController extends Controller
             return response()->json(['success' => false, 'message' => 'An error occurred while grading the quiz.']);
         }
     }
-    
-    
-
 }

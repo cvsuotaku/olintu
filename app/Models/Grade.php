@@ -11,7 +11,7 @@ class Grade extends Model
     protected $primaryKey = 'GRADE_ID';
 
     protected $fillable = [
-        'GRADE_ID', 'STUDENT_ID', 'TOPIC', 'SCORE', 'PERCENTAGE', 'CREATED_AT'
+        'GRADE_ID', 'STUDENT_ID', 'TOPIC', 'SCORE', 'PERCENTAGE', 'TAXONOMY_LEVEL', 'CREATED_AT'
     ];
 
     /**
