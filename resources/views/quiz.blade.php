@@ -127,46 +127,45 @@
             }
             console.log(selectedAnswers);
         }
+        
 
-        function submitQuiz() {
-
-            fetch("{{ route('quiz.grade') }}", {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}' // Include CSRF token for Laravel security
-                    },
-                    body: JSON.stringify({
-                        selectedAnswers: selectedAnswers,
-                        questions: questions.map(question => {
-                            // Map the keys to lowercase for consistency
-                            return {
-                                quiz_id: question.QUIZ_ID,
-                                topic: question.TOPIC,
-                                question: question.QUESTION,
-                                answer: question.ANSWER,
-                                option_a: question.OPTION_A,
-                                option_b: question.OPTION_B,
-                                option_c: question.OPTION_C,
-                                option_d: question.OPTION_D,
-                            };
-                        })
+         function submitQuiz() {
+        fetch("{{ route('quiz.grade') }}", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}' // Include CSRF token for Laravel security
+                },
+                body: JSON.stringify({
+                    selectedAnswers: selectedAnswers,
+                    questions: questions.map(question => {
+                        // Map the keys to lowercase for consistency
+                        return {
+                            quiz_id: question.QUIZ_ID,
+                            topic: question.TOPIC,
+                            question: question.QUESTION,
+                            answer: question.ANSWER,
+                            option_a: question.OPTION_A,
+                            option_b: question.OPTION_B,
+                            option_c: question.OPTION_C,
+                            option_d: question.OPTION_D,
+                            cognitive_level: question.COGNITIVE_LEVEL // Add Bloom's Taxonomy level
+                        };
                     })
                 })
-                .then(response => {
-                    console.log(response);
-                    return response.json(); // Parse the response body as JSON
-                })
-                .then(data => {
-                    console.log(data); // Handle the parsed JSON data from the server
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
                     window.location.href = "/grade";
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-
-        }
-
+                } else {
+                    console.error('Error:', data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
         // Initial display
         displayQuestion(currentQuestionIndex);
         updateButtons();

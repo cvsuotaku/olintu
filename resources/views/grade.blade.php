@@ -14,7 +14,10 @@
             <p class="lg:w-1/2 w-full leading-relaxed text-gray-500">
                 Topic {{ $grade->TOPIC }} - Score {{$grade->SCORE}}
                 <br>
-                PERCENT {{$grade->PERCENTAGE}}
+                PERCENT {{$grade->PERCENTAGE}}%
+                <br>
+    <p>Bloom's Taxonomy Level: {{ $grade->TAXONOMY_LEVEL }}</p>
+
             </p>
         </div>
 
