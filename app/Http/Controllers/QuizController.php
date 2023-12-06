@@ -72,11 +72,13 @@ class QuizController extends Controller
             $grade->save();
 
             Session::put('grade', $gradeId);
+            Session::put('question', $questions);
+            Session::put('answer', $answers);
 
             // Pass taxonomy level to the view
             return response()->json([
-                'success' => true, '
-                message' => $gradeId, 
+                'success' => true,
+                'message' => $gradeId,
                 'taxonomyLevel' => $taxonomyLevel,
                 'canProceed' => $canProceed,
             ]);
@@ -87,5 +89,4 @@ class QuizController extends Controller
             return response()->json(['success' => false, 'message' => 'An error occurred while grading the quiz.']);
         }
     }
-
 }
