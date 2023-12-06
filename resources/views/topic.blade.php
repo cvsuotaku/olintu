@@ -36,7 +36,7 @@
                                     {{ $userAttributes['FIRST_NAME'] . ' ' . $userAttributes['LAST_NAME']}}
                                 </p>
                                 <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">
-                                   Student #: {{ $userAttributes['STUDENT_NUMBER'] }}
+                                    Student #: {{ $userAttributes['STUDENT_NUMBER'] }}
                                 </p>
                             </div>
                             <ul class="py-1" role="none">
@@ -352,18 +352,33 @@
     // Global variable to store the current topic value
     // Access the global variable
     var currentTopic = @json($dashboardTopic).selectedTopic;
+    var isTopicCompleted = false;
 
     // Check if the variable is defined, otherwise use the default value
     if (typeof currentTopic === 'undefined') {
         currentTopic = 1;
     }
+    validateCompletedTopic(currentTopic);
     // Use JavaScript to load the URL into the specified div
     var url = "{{ route('open.topic', ['value' => ':dynamicValue']) }}";
     url = url.replace(':dynamicValue', currentTopic);
     // Set the inner HTML of the element with the generated URL
     document.getElementById('topicDiv').innerHTML = '<iframe id="topicFrame" src="' + url + '" width="100%" height="100%"></iframe>';
+    var iframe = document.getElementById('topicFrame');
+    iframe.onload = function() {
+        var iframeContentWindow = iframe.contentWindow;
+        var quizBtn = iframeContentWindow.document.getElementById('quiz-btn');
+        var quizBtnDisabled = iframeContentWindow.document.getElementById('quiz-btn-disabled');
+
+        if (isTopicCompleted) {
+            quizBtnDisabled.remove();
+        } else {
+            quizBtn == null ? quizBtn : quizBtn.remove();
+        }
+    };
 
     function loadTopic(val) {
+        validateCompletedTopic(val);
         // Check if the new value is different from the current one
         if (val !== currentTopic) {
             // Update the global variable with the new value
@@ -373,12 +388,25 @@
             var url = "{{ route('open.topic', ['value' => ':dynamicValue']) }}";
             url = url.replace(':dynamicValue', val);
             // Set the inner HTML of the element with the generated URL
-            document.getElementById('topicDiv').innerHTML = '<iframe id="topicFrame" src="' + url + '" width="100%" height="100%"></iframe>';
+            loadedTopic = document.getElementById('topicDiv').innerHTML = '<iframe id="topicFrame" src="' + url + '" width="100%" height="100%"></iframe>';
+            var iframe = document.getElementById('topicFrame');
+            iframe.onload = function() {
+                var iframeContentWindow = iframe.contentWindow;
+                var quizBtn = iframeContentWindow.document.getElementById('quiz-btn');
+                var quizBtnDisabled = iframeContentWindow.document.getElementById('quiz-btn-disabled');
+                console.log("isTopicCompleted " + isTopicCompleted);
+                if (isTopicCompleted) {
+                    quizBtnDisabled.remove();
+                } else {
+                    quizBtn == null ? quizBtn : quizBtn.remove();
+                }
+            };
         }
     }
 
 
     function loadTopicAndSection(val, section) {
+        validateCompletedTopic(val);
         // Check if the new value is different from the current one
         if (val !== currentTopic) {
             // Update the global variable with the new value
@@ -394,9 +422,47 @@
             iframe.onload = function() {
                 handleScrollSection(section);
             }
+
+            var iframeTopic = document.getElementById('topicFrame');
+            iframeTopic.onload = function() {
+                var iframeContentWindow = iframeTopic.contentWindow;
+                var quizBtn = iframeContentWindow.document.getElementById('quiz-btn');
+                var quizBtnDisabled = iframeContentWindow.document.getElementById('quiz-btn-disabled');
+
+
+                if (isTopicCompleted) {
+                    quizBtnDisabled.remove();
+                } else {
+                    quizBtn == null ? quizBtn : quizBtn.remove();
+                }
+            };
         } else {
             handleScrollSection(section);
         }
+    }
+
+    function validateCompletedTopic(topic) {
+        fetch("{{ route('validate.topic') }}", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}' // Include CSRF token for Laravel security
+                },
+                body: JSON.stringify({
+                    currentTopic: topic
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    isTopicCompleted = data.result;
+                } else {
+                    console.error('Error:', data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
     }
 
     function handleScrollSection(section) {

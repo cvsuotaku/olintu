@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use App\Models\Grade;
 
 class TopicController extends Controller
 {
@@ -11,6 +12,8 @@ class TopicController extends Controller
     protected $dashboardTopic;
     protected $userAttributesJson;
     protected $isStudent = false;
+    protected $grade;
+    protected $myTopic;
 
     public function openDashboardTopic($value)
     {
@@ -20,8 +23,19 @@ class TopicController extends Controller
             $userAttributesJson = json_encode(Session::get('user', []));
             return view('topic', compact('dashboardTopic', 'userAttributesJson', 'isStudent'));
         } else {
-            return view('topic', compact('dashboardTopic','isStudent'));
+            return view('topic', compact('dashboardTopic', 'isStudent'));
         }
+    }
+
+    public function isTopicCompleted(Request $topicRequest)
+    {
+        $this->grade = Grade::getByStudentId(Session::get('user', [])['STUDENT_ID']);
+        $topic = $topicRequest->input('currentTopic');
+        $topic = ($topic - 1) < 1 ? $topic : ($topic - 1);
+        $validateTopic =  collect($this->grade)->isEmpty() ? false : collect($this->grade)->contains(function ($g) use ($topic) {
+            return $g['TOPIC'] == $topic;
+        });
+        return response()->json(['success' => true, 'result' => $validateTopic]);
     }
 
 

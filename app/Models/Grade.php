@@ -24,5 +24,16 @@ class Grade extends Model
     {
         return self::where('grade_id', $id)->first();
     }
+
+    /**
+     * Get grade by Student Id.
+     *
+     * @param string $studentId
+     * @return
+     */
+    public static function getByStudentId($studentId)
+    {
+        return self::where('student_id', $studentId)->get();
+    }
 }
 
