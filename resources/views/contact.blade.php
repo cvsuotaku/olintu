@@ -23,7 +23,7 @@
                         <div class="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
                             <img alt="team" class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="{{ asset('images/geia.jpg') }}">
                             <div class="flex-grow sm:pl-8">
-                                <h2 class="title-font font-medium text-lg text-gray-900">Geia M. De la Rosa</h2>
+                                <h2 class="title-font font-medium text-lg text-gray-900">Geia M. Dela Rosa</h2>
                                 <h3 class="text-gray-500 mb-3">Software Developer</h3>
                                 <p class="mb-4">Meet Geia, our programming enthusiast! With a passion for problem-solving and coding, she's always up for a challenge. Geia is your go-to person for anything related to web development.</p>
                                 <span class="inline-flex">
