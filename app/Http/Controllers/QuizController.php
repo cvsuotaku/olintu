@@ -22,17 +22,17 @@ class QuizController extends Controller
     public function calculateTaxonomyLevel($percentage)
     {
         if ($percentage <= 30) {
-            return 'Remember';
+            return 'Remember, Better luck next time!';
         } elseif ($percentage <= 50) {
-            return 'Understand';
+            return 'Understand, You need to study more';
         } elseif ($percentage <= 70) {
-            return 'Apply';
+            return 'Apply, improving keep it up!';
         } elseif ($percentage <= 90) {
-            return 'Analyze';
+            return 'Analyze, Good Job! You passed.';
         } elseif ($percentage <= 95) {
-            return 'Evaluate';
+            return 'Evaluate, Nice one! You passed. ';
         } else {
-            return 'Create';
+            return 'Create, Congratulations! You passed.';
         }
     }
 
@@ -53,8 +53,9 @@ class QuizController extends Controller
                 $indexCounter++;
             }
 
-            $percentage = ($gradeCounter / count($questions)) * 75;
+            $percentage = ($gradeCounter / count($questions)) * 100.00;
             $taxonomyLevel = $this->calculateTaxonomyLevel($percentage);
+            $canProceed = $percentage >= 80;
 
             // Generate a new Grade ID
             $gradeId = (string) Str::uuid();
@@ -73,7 +74,12 @@ class QuizController extends Controller
             Session::put('grade', $gradeId);
 
             // Pass taxonomy level to the view
-            return response()->json(['success' => true, 'message' => $gradeId, 'taxonomyLevel' => $taxonomyLevel]);
+            return response()->json([
+                'success' => true, '
+                message' => $gradeId, 
+                'taxonomyLevel' => $taxonomyLevel,
+                'canProceed' => $canProceed,
+            ]);
         } catch (\Exception $e) {
             // Log or dd() the exception message to see what's going wrong
             Log::error($e->getMessage());
