@@ -44,10 +44,10 @@
                             {{$question[$i]['question']}}
                         </th>
                         <td class="px-6 py-4">
-                            {{$answer[$i]}} : <b> {{$question[$i]['option_'.strtolower($question[$i]['answer'])]}} </b>
+                            {{$answer[$i]}} : <b> {{$question[$i]['option_'.strtolower($answer[$i])]}} </b>
                         </td>
                         <td class="px-6 py-4">
-                            {{$question[$i]['answer']}}
+                            {{$question[$i]['answer']}}  : <b> {{$question[$i]['option_'.strtolower($question[$i]['answer'])]}} </b>
                         </td>
                         </tr>
                         @endfor
