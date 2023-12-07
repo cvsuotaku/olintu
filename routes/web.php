@@ -52,3 +52,4 @@ Route::get('/quiz', [QuizController::class, 'loadQuiz'])->name('quiz');
 Route::post('/quiz', [QuizController::class, 'gradeQuiz'])->name('quiz.grade');
 Route::get('/grade',[GradeController::class, 'loadGrade'])->name('grade.student');
 Route::post('/topic_validate',[TopicController::class, 'isTopicCompleted'])->name('validate.topic');
+Route::get('/topic_progress',[DashboardController::class, 'getAllTopicProgress'])->name('progress.dashboard');

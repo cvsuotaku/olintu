@@ -353,6 +353,7 @@
     // Access the global variable
     var currentTopic = @json($dashboardTopic).selectedTopic;
     var isTopicCompleted = false;
+    var topicProgress;
 
     // Check if the variable is defined, otherwise use the default value
     if (typeof currentTopic === 'undefined') {

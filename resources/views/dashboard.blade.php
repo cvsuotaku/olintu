@@ -120,58 +120,58 @@
                 <div class="bg-gray-50 dark:bg-gray-700 p-3 rounded-lg">
                     <div class="grid grid-cols-3 gap-3 mb-2">
                         <dl class="bg-orange-50 dark:bg-gray-600 rounded-lg flex flex-col items-center justify-center h-[78px]">
-                            <dt class="w-8 h-8 rounded-full bg-orange-100 dark:bg-gray-500 text-orange-600 dark:text-orange-300 text-sm font-medium flex items-center justify-center mb-1">8</dt>
+                            <dt id="to-do" class="w-8 h-8 rounded-full bg-orange-100 dark:bg-gray-500 text-orange-600 dark:text-orange-300 text-sm font-medium flex items-center justify-center mb-1"></dt>
                             <dd class="text-orange-600 dark:text-orange-300 text-sm font-medium">To do</dd>
                         </dl>
                         <dl class="bg-teal-50 dark:bg-gray-600 rounded-lg flex flex-col items-center justify-center h-[78px]">
-                            <dt class="w-8 h-8 rounded-full bg-teal-100 dark:bg-gray-500 text-teal-600 dark:text-teal-300 text-sm font-medium flex items-center justify-center mb-1">0</dt>
+                            <dt id="in-progress" class="w-8 h-8 rounded-full bg-teal-100 dark:bg-gray-500 text-teal-600 dark:text-teal-300 text-sm font-medium flex items-center justify-center mb-1"></dt>
                             <dd class="text-teal-600 dark:text-teal-300 text-sm font-medium">In progress</dd>
                         </dl>
                         <dl class="bg-blue-50 dark:bg-gray-600 rounded-lg flex flex-col items-center justify-center h-[78px]">
-                            <dt class="w-8 h-8 rounded-full bg-blue-100 dark:bg-gray-500 text-blue-600 dark:text-blue-300 text-sm font-medium flex items-center justify-center mb-1">0</dt>
+                            <dt id="done" class="w-8 h-8 rounded-full bg-blue-100 dark:bg-gray-500 text-blue-600 dark:text-blue-300 text-sm font-medium flex items-center justify-center mb-1"></dt>
                             <dd class="text-blue-600 dark:text-blue-300 text-sm font-medium">Done</dd>
                         </dl>
                     </div>
                     <div id="more-details" class="border-gray-200 border-t dark:border-gray-600 pt-3 mt-3 space-y-2">
-                        <dl class="flex items-center justify-between">
+                        <!-- <dl class="flex items-center justify-between">
                             <dt class="text-gray-500 dark:text-gray-400 text-sm font-normal">Average task completion rate:</dt>
                             <dd class="bg-green-100 text-green-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-green-900 dark:text-green-300">
                                 <svg class="w-2.5 h-2.5 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 14">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13V1m0 0L1 5m4-4 4 4" />
                                 </svg> 57%
                             </dd>
-                        </dl>
+                        </dl> -->
                         <dl class="flex items-center justify-between">
                             <dt class="text-gray-500 dark:text-gray-400 text-sm font-normal">Topic 1 - Introduction to PHP:</dt>
-                            <dd class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-gray-600 dark:text-gray-300">Not Started</dd>
+                            <dd id="t1" class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-gray-600 dark:text-gray-300"></dd>
                         </dl>
                         <dl class="flex items-center justify-between">
                             <dt class="text-gray-500 dark:text-gray-400 text-sm font-normal">Topic 2 - PHP Installation:</dt>
-                            <dd class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-gray-600 dark:text-gray-300">Not Started</dd>
+                            <dd id="t2" class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-gray-600 dark:text-gray-300">Not Started</dd>
                         </dl>
                         <dl class="flex items-center justify-between">
                             <dt class="text-gray-500 dark:text-gray-400 text-sm font-normal">Topic 3 - PHP Common Use:</dt>
-                            <dd class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-gray-600 dark:text-gray-300">Not Started</dd>
+                            <dd id="t3" class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-gray-600 dark:text-gray-300">Not Started</dd>
                         </dl>
                         <dl class="flex items-center justify-between">
                             <dt class="text-gray-500 dark:text-gray-400 text-sm font-normal">Topic 4 - Introduction to Array:</dt>
-                            <dd class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-gray-600 dark:text-gray-300">Not Started</dd>
+                            <dd id="t4" class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-gray-600 dark:text-gray-300">Not Started</dd>
                         </dl>
                         <dl class="flex items-center justify-between">
                             <dt class="text-gray-500 dark:text-gray-400 text-sm font-normal">Topic 5 - Web Concepts:</dt>
-                            <dd class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-gray-600 dark:text-gray-300">Not Started</dd>
+                            <dd id="t5" class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-gray-600 dark:text-gray-300">Not Started</dd>
                         </dl>
                         <dl class="flex items-center justify-between">
                             <dt class="text-gray-500 dark:text-gray-400 text-sm font-normal">Topic 6 - Advanced PHP:</dt>
-                            <dd class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-gray-600 dark:text-gray-300">Not Started</dd>
+                            <dd id="t6" class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-gray-600 dark:text-gray-300">Not Started</dd>
                         </dl>
                         <dl class="flex items-center justify-between">
                             <dt class="text-gray-500 dark:text-gray-400 text-sm font-normal">Topic 7 - Database Connection:</dt>
-                            <dd class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-gray-600 dark:text-gray-300">Not Started</dd>
+                            <dd id="t7" class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-gray-600 dark:text-gray-300">Not Started</dd>
                         </dl>
                         <dl class="flex items-center justify-between">
                             <dt class="text-gray-500 dark:text-gray-400 text-sm font-normal">Topic 8 - OOP Concept:</dt>
-                            <dd class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-gray-600 dark:text-gray-300">Not Started</dd>
+                            <dd id="t8" class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-gray-600 dark:text-gray-300">Not Started</dd>
                         </dl>
                     </div>
                 </div>
@@ -234,5 +234,72 @@
         </section>
     </div>
 
+    <script>
+        let $topicProgress;
+        let todo;
+        let ongoing;
+        let done;
+        getTopicProgress();
+
+        function getTopicProgress() {
+            fetch("{{ route('progress.dashboard') }}", {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}' // Include CSRF token for Laravel security
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        topicProgress = data.result.progress;
+                        todo = data.result.todo;
+                        ongoing = data.result.ongoing;
+                        done = data.result.done;
+                        setProgress();
+                    } else {
+                        console.error('Error:', data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+
+        function setProgress() {
+            todoBar = document.getElementById('to-do');
+            inProgressBar = document.getElementById('in-progress');
+            doneBar = document.getElementById('done');
+            todoBar.textContent  = todo;
+            inProgressBar.textContent  = ongoing;
+            doneBar.textContent  = done;
+
+            for (var i = 1; i <= 8; i++) {
+                topicBar = document.getElementById('t' + i);
+                topicBar.textContent = topicProgress[i - 1];
+                switch (topicProgress[i - 1]) {
+                    case 'Passed':
+                        // Handle logic for 'Passed'
+                        topicBar.classList.add('dark:bg-green-900', 'dark:text-green-300', 'bg-green-100', 'text-green-800');
+                        break;
+
+                    case 'Failed':
+                        // Handle logic for 'Failed'
+                        topicBar.classList.add('dark:bg-red-900', 'dark:text-red-300', 'bg-red-100', 'text-red-800');
+                        break;
+
+                    case 'Not Started':
+                        // Handle logic for 'Not Started'
+                        console.log('Topic Not Started');
+                        break;
+
+                    default:
+                        // Handle default case (if needed)
+                        console.log('Unknown Progress');
+                        break;
+                }
+            }
+        }
+    </script>
 </section>
 @endsection
