@@ -58,7 +58,7 @@ class RegisterController extends Controller
     protected function validateUserForm(Request $request)
     {
         $rules = [
-            'student_number' => ['required', 'string', 'min:8', 'max:45', Rule::unique('TBL_STUDENT', 'student_number')],
+            'student_number' => ['required', 'string', 'min:7', 'max:10', Rule::unique('TBL_STUDENT', 'student_number')],
             'username' => ['required', 'string', 'min:8', 'max:45', new UniqueUsername],
             'password' => ['required', 'string', 'min:8', 'max:255'],
             'first_name' => ['required', 'string', 'max:45'],

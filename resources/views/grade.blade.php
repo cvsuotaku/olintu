@@ -73,7 +73,7 @@
     </div>
     <script>
         function closeWindow() {
-            window.location.href = "dashboard";
+            window.close();
         }
     </script>
 </section>
