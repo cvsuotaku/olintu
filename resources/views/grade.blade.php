@@ -66,7 +66,7 @@
     </div>
     <script>
         function closeWindow() {
-            window.close();
+            window.location.href = "dashboard";
         }
     </script>
 </section>
