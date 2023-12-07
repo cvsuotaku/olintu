@@ -133,14 +133,14 @@
                         </dl>
                     </div>
                     <div id="more-details" class="border-gray-200 border-t dark:border-gray-600 pt-3 mt-3 space-y-2">
-                        <!-- <dl class="flex items-center justify-between">
-                            <dt class="text-gray-500 dark:text-gray-400 text-sm font-normal">Average task completion rate:</dt>
-                            <dd class="bg-green-100 text-green-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-green-900 dark:text-green-300">
+                        <dl class="flex items-center justify-between">
+                            <dt class="text-gray-500 dark:text-gray-400 text-sm font-normal">Task completion rate:</dt>
+                            <dd id="completion-rate" class="bg-green-100 text-green-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-green-900 dark:text-green-300">
                                 <svg class="w-2.5 h-2.5 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 14">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13V1m0 0L1 5m4-4 4 4" />
-                                </svg> 57%
+                                </svg> 
                             </dd>
-                        </dl> -->
+                        </dl>
                         <dl class="flex items-center justify-between">
                             <dt class="text-gray-500 dark:text-gray-400 text-sm font-normal">Topic 1 - Introduction to PHP:</dt>
                             <dd id="t1" class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-gray-600 dark:text-gray-300"></dd>
@@ -267,12 +267,14 @@
         }
 
         function setProgress() {
+            completionRateBar = document.getElementById('completion-rate');
             todoBar = document.getElementById('to-do');
             inProgressBar = document.getElementById('in-progress');
             doneBar = document.getElementById('done');
             todoBar.textContent  = todo;
             inProgressBar.textContent  = ongoing;
             doneBar.textContent  = done;
+            completionRateBar.textContent = ((done / 8) * 100) + '%';
 
             for (var i = 1; i <= 8; i++) {
                 topicBar = document.getElementById('t' + i);
