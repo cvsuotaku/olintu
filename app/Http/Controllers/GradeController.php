@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Session;
 use App\Models\Grade;
+use Illuminate\Support\Facades\Log;
 
 class GradeController extends Controller
 {
@@ -11,6 +12,7 @@ class GradeController extends Controller
     {
         $grade = Grade::getById(Session::get('grade'));
         $question = Session::get('question');
+        Log::info($question);
         $answer = Session::get('answer');
         return view('grade', compact('grade', 'question', 'answer'));
     }
