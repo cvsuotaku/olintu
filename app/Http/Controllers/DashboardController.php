@@ -68,7 +68,6 @@ class DashboardController extends Controller
 
     public function getTProgress($topic)
     {
-        Log::info($topic);
         $this->grade = Grade::getByStudentId(Session::get('user', [])['STUDENT_ID']);
         $topicProgress = collect($this->grade)->isEmpty() ? false : collect($this->grade)->contains(function ($g) use ($topic) {
             return $g['TOPIC'] ==
