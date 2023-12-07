@@ -120,15 +120,15 @@
                 <div class="bg-gray-50 dark:bg-gray-700 p-3 rounded-lg">
                     <div class="grid grid-cols-3 gap-3 mb-2">
                         <dl class="bg-orange-50 dark:bg-gray-600 rounded-lg flex flex-col items-center justify-center h-[78px]">
-                            <dt class="w-8 h-8 rounded-full bg-orange-100 dark:bg-gray-500 text-orange-600 dark:text-orange-300 text-sm font-medium flex items-center justify-center mb-1">12</dt>
+                            <dt class="w-8 h-8 rounded-full bg-orange-100 dark:bg-gray-500 text-orange-600 dark:text-orange-300 text-sm font-medium flex items-center justify-center mb-1">8</dt>
                             <dd class="text-orange-600 dark:text-orange-300 text-sm font-medium">To do</dd>
                         </dl>
                         <dl class="bg-teal-50 dark:bg-gray-600 rounded-lg flex flex-col items-center justify-center h-[78px]">
-                            <dt class="w-8 h-8 rounded-full bg-teal-100 dark:bg-gray-500 text-teal-600 dark:text-teal-300 text-sm font-medium flex items-center justify-center mb-1">23</dt>
+                            <dt class="w-8 h-8 rounded-full bg-teal-100 dark:bg-gray-500 text-teal-600 dark:text-teal-300 text-sm font-medium flex items-center justify-center mb-1">0</dt>
                             <dd class="text-teal-600 dark:text-teal-300 text-sm font-medium">In progress</dd>
                         </dl>
                         <dl class="bg-blue-50 dark:bg-gray-600 rounded-lg flex flex-col items-center justify-center h-[78px]">
-                            <dt class="w-8 h-8 rounded-full bg-blue-100 dark:bg-gray-500 text-blue-600 dark:text-blue-300 text-sm font-medium flex items-center justify-center mb-1">64</dt>
+                            <dt class="w-8 h-8 rounded-full bg-blue-100 dark:bg-gray-500 text-blue-600 dark:text-blue-300 text-sm font-medium flex items-center justify-center mb-1">0</dt>
                             <dd class="text-blue-600 dark:text-blue-300 text-sm font-medium">Done</dd>
                         </dl>
                     </div>
@@ -140,6 +140,38 @@
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13V1m0 0L1 5m4-4 4 4" />
                                 </svg> 57%
                             </dd>
+                        </dl>
+                        <dl class="flex items-center justify-between">
+                            <dt class="text-gray-500 dark:text-gray-400 text-sm font-normal">Topic 1 - Introduction to PHP:</dt>
+                            <dd class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-gray-600 dark:text-gray-300">Not Started</dd>
+                        </dl>
+                        <dl class="flex items-center justify-between">
+                            <dt class="text-gray-500 dark:text-gray-400 text-sm font-normal">Topic 2 - PHP Installation:</dt>
+                            <dd class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-gray-600 dark:text-gray-300">Not Started</dd>
+                        </dl>
+                        <dl class="flex items-center justify-between">
+                            <dt class="text-gray-500 dark:text-gray-400 text-sm font-normal">Topic 3 - PHP Common Use:</dt>
+                            <dd class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-gray-600 dark:text-gray-300">Not Started</dd>
+                        </dl>
+                        <dl class="flex items-center justify-between">
+                            <dt class="text-gray-500 dark:text-gray-400 text-sm font-normal">Topic 4 - Introduction to Array:</dt>
+                            <dd class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-gray-600 dark:text-gray-300">Not Started</dd>
+                        </dl>
+                        <dl class="flex items-center justify-between">
+                            <dt class="text-gray-500 dark:text-gray-400 text-sm font-normal">Topic 5 - Web Concepts:</dt>
+                            <dd class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-gray-600 dark:text-gray-300">Not Started</dd>
+                        </dl>
+                        <dl class="flex items-center justify-between">
+                            <dt class="text-gray-500 dark:text-gray-400 text-sm font-normal">Topic 6 - Advanced PHP:</dt>
+                            <dd class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-gray-600 dark:text-gray-300">Not Started</dd>
+                        </dl>
+                        <dl class="flex items-center justify-between">
+                            <dt class="text-gray-500 dark:text-gray-400 text-sm font-normal">Topic 7 - Database Connection:</dt>
+                            <dd class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-gray-600 dark:text-gray-300">Not Started</dd>
+                        </dl>
+                        <dl class="flex items-center justify-between">
+                            <dt class="text-gray-500 dark:text-gray-400 text-sm font-normal">Topic 8 - OOP Concept:</dt>
+                            <dd class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-gray-600 dark:text-gray-300">Not Started</dd>
                         </dl>
                     </div>
                 </div>

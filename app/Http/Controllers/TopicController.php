@@ -29,13 +29,18 @@ class TopicController extends Controller
 
     public function isTopicCompleted(Request $topicRequest)
     {
-        $this->grade = Grade::getByStudentId(Session::get('user', [])['STUDENT_ID']);
-        $topic = $topicRequest->input('currentTopic');
-        $topic = ($topic - 1) < 1 ? $topic : ($topic - 1);
-        $validateTopic =  collect($this->grade)->isEmpty() ? false : collect($this->grade)->contains(function ($g) use ($topic) {
-            return $g['TOPIC'] == $topic && $g['GRADE'] >= 80;
-        });
-        return response()->json(['success' => true, 'result' => $validateTopic]);
+        $isStudent  = Session::get('user') != null;
+        if ($isStudent) {
+            $this->grade = Grade::getByStudentId(Session::get('user', [])['STUDENT_ID']);
+            $topic = $topicRequest->input('currentTopic');
+            $topic = ($topic - 1) < 1 ? $topic : ($topic - 1);
+            $validateTopic =  collect($this->grade)->isEmpty() ? false : collect($this->grade)->contains(function ($g) use ($topic) {
+                return $g['TOPIC'] == $topic && $g['PERCENTAGE'] >= 80;
+            });
+            return response()->json(['success' => true, 'result' => $validateTopic]);
+        } else {
+            return response()->json(['success' => true, 'result' => true]);
+        }
     }
 
 
