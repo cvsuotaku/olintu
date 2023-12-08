@@ -60,9 +60,9 @@ class DashboardController extends Controller
             return response()->json(['success' => true, 'result' => [
                 'progress' => $currentProgress,
                 'todo' => $notStartedCount, 'ongoing' => $failedCount, 'done' => $passedCount
-            ]]);
+            ], 'isStudent' => $isStudent]);
         } else {
-            return response()->json(['success' => true, 'result' => []]);
+            return response()->json(['success' => true, 'result' => [], 'isStudent' => $isStudent]);
         }
     }
 

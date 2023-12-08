@@ -96,9 +96,9 @@
             </div>
         </section>
 
-        <section class="mb-8">
+        <section id="learn-progress" class="mb-8">
             <h2 class="text-2xl font-semibold mb-4">Lesson Progress</h2>
-            
+
 
             <div class="max-w-sm w-1/2 bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
                 <div class="flex justify-between mb-3">
@@ -108,7 +108,7 @@
                             <svg data-popover-target="chart-info" data-popover-placement="bottom" class="w-3.5 h-3.5 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white cursor-pointer ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                                 <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm0 16a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm1-5.034V12a1 1 0 0 1-2 0v-1.418a1 1 0 0 1 1.038-.999 1.436 1.436 0 0 0 1.488-1.441 1.501 1.501 0 1 0-3-.116.986.986 0 0 1-1.037.961 1 1 0 0 1-.96-1.037A3.5 3.5 0 1 1 11 11.466Z" />
                             </svg>
-                            
+
                             <div data-popover id="chart-info" role="tooltip" class="absolute z-10 invisible inline-block text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 w-72 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400">
                                 <div class="p-3 space-y-2">
                                     <h3 class="font-semibold text-gray-900 dark:text-white">Activity growth - Incremental</h3>
@@ -116,7 +116,7 @@
                                 </div>
                                 <div data-popper-arrow></div>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -146,7 +146,7 @@
                             <dd id="completion-rate" class="bg-green-100 text-green-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-green-900 dark:text-green-300">
                                 <svg class="w-2.5 h-2.5 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 14">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13V1m0 0L1 5m4-4 4 4" />
-                                </svg> 
+                                </svg>
                             </dd>
                         </dl>
                         <dl class="flex items-center justify-between">
@@ -243,10 +243,11 @@
     </div>
 
     <script>
-        let $topicProgress;
+        let topicProgress;
         let todo;
         let ongoing;
         let done;
+        let isStudent = false;
         getTopicProgress();
 
         function getTopicProgress() {
@@ -264,6 +265,7 @@
                         todo = data.result.todo;
                         ongoing = data.result.ongoing;
                         done = data.result.done;
+                        isStudent = data.isStudent;
                         setProgress();
                     } else {
                         console.error('Error:', data.message);
@@ -279,10 +281,15 @@
             todoBar = document.getElementById('to-do');
             inProgressBar = document.getElementById('in-progress');
             doneBar = document.getElementById('done');
-            todoBar.textContent  = todo;
-            inProgressBar.textContent  = ongoing;
-            doneBar.textContent  = done;
+            learnProgress = document.getElementById('learn-progress');
+            todoBar.textContent = todo;
+            inProgressBar.textContent = ongoing;
+            doneBar.textContent = done;
             completionRateBar.textContent = ((done / 8) * 100) + '%';
+
+            if (!isStudent) {
+                learnProgress.parentNode.removeChild(learnProgress);
+            }
 
             for (var i = 1; i <= 8; i++) {
                 topicBar = document.getElementById('t' + i);
