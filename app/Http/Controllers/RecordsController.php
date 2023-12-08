@@ -2,40 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Grade;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Log;
 
 class RecordsController extends Controller
 {
-    public function index()
+    protected $grades;
+
+    public function retrieveGrade()
     {
-
-        $studentId = Auth::guard('STUDENT_NUMBER');
-        dd($studentId);
-        $grades = Grade::where('STUDENT_ID', $studentId)->get();
-
-        
-
+        $grades = Grade::getByStudentId(Session::get('user', [])['STUDENT_ID']);
         Log::info($grades);
-        return view('records');
-
-        
+        return view('records', compact('grades'));
     }
-
-    // RecordsController.php
-
-
-
-    //public function showRecords()
-    //{
-        
-
-       // return view('records', compact('grades'));
-    //}
-
-
-
-
 }

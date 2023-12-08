@@ -121,7 +121,7 @@
                     </div>
                 </div>
                 <button class="bg-black text-white px-4 py-2 my-2 mx-auto block rounded shadow">
-                    <a href="records">
+                    <a href="{{route('grade.records')}}">
                         Records
                     </a>
                 </button>
