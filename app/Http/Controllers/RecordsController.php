@@ -11,6 +11,7 @@ class RecordsController extends Controller
 
     public function retrieveGrade()
     {
+        
         $grades = Grade::getByStudentId(Session::get('user', [])['STUDENT_ID']);
         return view('records', compact('grades'));
     }

@@ -19,6 +19,17 @@ class DashboardController extends Controller
         }
     }
 
+    public function studentProfile()
+    {
+        $isStudent  = Session::get('user') != null;
+        if ($isStudent) {
+            $userAttributesJson = json_encode(Session::get('user', []));
+            return view('topic', compact('userAttributesJson', 'isStudent'));
+        } else {
+            return view('topic', compact('isStudent'));
+        }
+    }
+
 
     public function getAllTopicProgress()
     {
@@ -57,10 +68,12 @@ class DashboardController extends Controller
                 }
             }
 
+            $userAttributesJson = json_encode(Session::get('user', []));
             return response()->json(['success' => true, 'result' => [
                 'progress' => $currentProgress,
                 'todo' => $notStartedCount, 'ongoing' => $failedCount, 'done' => $passedCount
-            ], 'isStudent' => $isStudent]);
+            ], 'isStudent'=> $isStudent, 'profile'  =>  $userAttributesJson]);
+
         } else {
             return response()->json(['success' => true, 'result' => [], 'isStudent' => $isStudent]);
         }
