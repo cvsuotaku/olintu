@@ -8,13 +8,13 @@
         <div class="flex items-start">
             <h1 class="text-2xl font-semibold mt-1">OLINTU Dashboard</h1>
         </div>
-    
+
         <div id="user-profile" class="flex items-start">
             <button type="button" class="flex text-lg bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" aria-expanded="false" data-dropdown-toggle="dropdown-user">
                 <span class="sr-only">Open user menu</span>
                 <img class="w-8 h-8 rounded-full" src="{{ asset('images/user-icon.png') }}" alt="user photo">
             </button>
-    
+
             <div class="z-50 hidden ml-2 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600" id="dropdown-user">
                 <div class="px-4 py-3" role="none">
                     <p id="user-profile-name" class="text-sm text-gray-900 dark:text-white" role="none"></p>
@@ -34,7 +34,7 @@
             </div>
         </div>
     </nav>
-    
+
 
     <!-- Main Content -->
     <div class="container mx-auto mt-8 px-6 py-8 mx-auto lg:py-0">
@@ -287,12 +287,21 @@
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
-                        topicProgress = data.result.progress;
-                        todo = data.result.todo;
-                        ongoing = data.result.ongoing;
-                        done = data.result.done;
                         isStudent = data.isStudent;
-                        profile = JSON.parse(data.profile);
+                        if (isStudent) {
+                            topicProgress = data.result.progress;
+                            todo = data.result.todo;
+                            ongoing = data.result.ongoing;
+                            done = data.result.done;
+                            profile = JSON.parse(data.profile);
+                        } else {
+                            topicProgress = 0;
+                            todo = 0;
+                            ongoing = 0;
+                            done = 0;
+                        }
+
+
                         setProfile();
                         setProgress();
                     } else {
@@ -309,7 +318,7 @@
             userProfileName = document.getElementById('user-profile-name');
             userProfileNumber = document.getElementById('user-profile-number');
             if (!isStudent) {
-                learnProgress.parentNode.removeChild(learnProgress);
+                userProfile.parentNode.removeChild(userProfile);
             } else {
                 userProfileName.textContent = profile.FIRST_NAME + " " + profile.LAST_NAME;
                 userProfileNumber.textContent = "Student # " + profile.STUDENT_NUMBER;
@@ -322,38 +331,39 @@
             inProgressBar = document.getElementById('in-progress');
             doneBar = document.getElementById('done');
             learnProgress = document.getElementById('learn-progress');
-            todoBar.textContent = todo;
-            inProgressBar.textContent = ongoing;
-            doneBar.textContent = done;
-            completionRateBar.textContent = ((done / 8) * 100) + '%';
+
 
             if (!isStudent) {
                 learnProgress.parentNode.removeChild(learnProgress);
-            }
+            } else {
+                todoBar.textContent = todo;
+                inProgressBar.textContent = ongoing;
+                doneBar.textContent = done;
+                completionRateBar.textContent = ((done / 8) * 100) + '%';
+                for (var i = 1; i <= 8; i++) {
+                    topicBar = document.getElementById('t' + i);
+                    topicBar.textContent = topicProgress[i - 1];
+                    switch (topicProgress[i - 1]) {
+                        case 'Passed':
+                            // Handle logic for 'Passed'
+                            topicBar.classList.add('dark:bg-green-900', 'dark:text-green-300', 'bg-green-100', 'text-green-800');
+                            break;
 
-            for (var i = 1; i <= 8; i++) {
-                topicBar = document.getElementById('t' + i);
-                topicBar.textContent = topicProgress[i - 1];
-                switch (topicProgress[i - 1]) {
-                    case 'Passed':
-                        // Handle logic for 'Passed'
-                        topicBar.classList.add('dark:bg-green-900', 'dark:text-green-300', 'bg-green-100', 'text-green-800');
-                        break;
+                        case 'Failed':
+                            // Handle logic for 'Failed'
+                            topicBar.classList.add('dark:bg-red-900', 'dark:text-red-300', 'bg-red-100', 'text-red-800');
+                            break;
 
-                    case 'Failed':
-                        // Handle logic for 'Failed'
-                        topicBar.classList.add('dark:bg-red-900', 'dark:text-red-300', 'bg-red-100', 'text-red-800');
-                        break;
+                        case 'Not Started':
+                            // Handle logic for 'Not Started'
+                            console.log('Topic Not Started');
+                            break;
 
-                    case 'Not Started':
-                        // Handle logic for 'Not Started'
-                        console.log('Topic Not Started');
-                        break;
-
-                    default:
-                        // Handle default case (if needed)
-                        console.log('Unknown Progress');
-                        break;
+                        default:
+                            // Handle default case (if needed)
+                            console.log('Unknown Progress');
+                            break;
+                    }
                 }
             }
         }
