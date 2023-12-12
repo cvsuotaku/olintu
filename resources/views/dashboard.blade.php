@@ -9,6 +9,9 @@
             <h1 class="text-2xl font-semibold mt-1">OLINTU Dashboard</h1>
         </div>
 
+        <div id="guest-login">
+            <a href="{{route('login')}}">Login</a>
+        </div>
         <div id="user-profile" class="flex items-start">
             <button type="button" class="flex text-lg bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" aria-expanded="false" data-dropdown-toggle="dropdown-user">
                 <span class="sr-only">Open user menu</span>
@@ -314,6 +317,7 @@
         }
 
         function setProfile() {
+            guestLogin = document.getElementById('guest-login');
             userProfile = document.getElementById('user-profile');
             userProfileName = document.getElementById('user-profile-name');
             userProfileNumber = document.getElementById('user-profile-number');
@@ -322,6 +326,7 @@
             } else {
                 userProfileName.textContent = profile.FIRST_NAME + " " + profile.LAST_NAME;
                 userProfileNumber.textContent = "Student # " + profile.STUDENT_NUMBER;
+                guestLogin.remove();
             }
         }
 
