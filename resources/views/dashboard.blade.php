@@ -10,7 +10,9 @@
         </div>
 
         <div id="guest-login">
-            <a href="{{route('login')}}">Login</a>
+            <a href="{{route('login')}}">Login</a>&nbsp;
+            &nbsp;&nbsp;&nbsp;<a href="{{route('register')}}">Register</a>
+
         </div>
         <div id="user-profile" class="flex items-start">
             <button type="button" class="flex text-lg bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" aria-expanded="false" data-dropdown-toggle="dropdown-user">
