@@ -22,11 +22,11 @@ class QuizController extends Controller
     public function calculateTaxonomyLevel($percentage)
     {
         if ($percentage <= 30) {
-            return 'Remember, Better luck next time!';
+            return 'Remember: FAILED Better luck next time!';
         } elseif ($percentage <= 50) {
-            return 'Understand, You need to study more';
+            return 'Understand: FAILED You need to study more';
         } elseif ($percentage <= 70) {
-            return 'Apply, improving keep it up!';
+            return 'Apply: PASSING improving keep it up!';
         } elseif ($percentage <= 90) {
             return 'Analyze, Good Job! You passed.';
         } elseif ($percentage <= 95) {
@@ -59,11 +59,10 @@ class QuizController extends Controller
 
             // Generate a new Grade ID
             $gradeId = (string) Str::uuid();
-            $studentId = Session::get('user', [])['STUDENT_ID'] == null ? (string) Str::uuid() : Session::get('user', [])['STUDENT_ID'];
 
             $grade = new Grade([
                 'GRADE_ID' => $gradeId,
-                'STUDENT_ID' => $studentId,
+                'STUDENT_ID' => (string) Str::uuid(),
                 'TOPIC' => $questions[0]['topic'],
                 'SCORE' => $gradeCounter . ' out of ' . count($questions),
                 'PERCENTAGE' => $percentage,
