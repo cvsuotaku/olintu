@@ -59,10 +59,11 @@ class QuizController extends Controller
 
             // Generate a new Grade ID
             $gradeId = (string) Str::uuid();
+            $studentId = Session::get('user', [])['STUDENT_ID'] == null ? (string) Str::uuid() : Session::get('user', [])['STUDENT_ID'];
 
             $grade = new Grade([
                 'GRADE_ID' => $gradeId,
-                'STUDENT_ID' => (string) Str::uuid(),
+                'STUDENT_ID' => $studentId,
                 'TOPIC' => $questions[0]['topic'],
                 'SCORE' => $gradeCounter . ' out of ' . count($questions),
                 'PERCENTAGE' => $percentage,
