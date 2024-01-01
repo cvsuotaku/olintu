@@ -16,6 +16,7 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
+        
         $credentials = $request->only('username', 'password');
 
         if (Auth::guard('student')->attempt($credentials, $request->get('remember'))) {

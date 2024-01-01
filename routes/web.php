@@ -11,6 +11,7 @@ use App\Http\Controllers\QuizController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TopicController;
 use App\Http\Controllers\RecordsController;
+use App\Http\Controllers\accountManagement;
 
 
 /*
@@ -43,7 +44,6 @@ Route::view('/privacy', 'privacy')->name('privacy');
 Route::view('/contact', 'contact')->name('contact');
 Route::get('/open-topic/{value}', [TopicController::class, 'openTopic'])->name('open.topic');
 Route::view('/topic_one', 'topic_one')->name('topic_one');
-Route::view('/topic_two', 'topic_two')->name('topic_two');
 Route::view('/topic_three', 'topic_three')->name('topic_three');
 Route::view('/topic_four', 'topic_four')->name('topic_four');
 Route::view('/topic_five', 'topic_five')->name('topic_five');
@@ -59,3 +59,5 @@ Route::get('/topic_progress',[DashboardController::class, 'getAllTopicProgress']
 Route::get('/settings_update', [SettingController::class,'updateAccount'])->name('update.settings');
 Route::get('/records_grade', [RecordsController::class, 'retrieveGrade'])->name('grade.records');
 
+Route::get('/account_management', [accountManagement::class, 'index'])->name('account_managementss');
+Route::get('/account_edit/{id}', [accountManagement::class, 'edit'])->name('account_managementss');
