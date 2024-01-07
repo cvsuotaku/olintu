@@ -31,6 +31,7 @@ class Student extends Model implements Authenticatable
         'MIDDLE_NAME',
         'LAST_NAME',
         'PASSWORD',
+        'role'
     ];
 
     protected $hidden = [

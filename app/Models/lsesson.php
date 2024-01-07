@@ -16,9 +16,16 @@ class lsesson extends Model
     // Define the fillable fields if needed
     protected $fillable = [
         'title',
+        'summary'
     ];
 
     public function component(){
         return $this->hasMany(lessoComponent::class,'lessonId','lessonId');
+    
     }
+
+    public function question(){
+        return $this->hasMany(question::class,'lessonId','lessonId');
+    }
+
 }

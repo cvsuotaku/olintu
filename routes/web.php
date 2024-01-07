@@ -74,6 +74,12 @@ Route::post('/create_component/{id}', [lessonManagement::class, 'storeComponent'
 Route::put('/update_lesson_name/{id}', [lessonManagement::class, 'update_lesson_name'])->name('lesson_update_name');
 Route::put('/update_component/{id}', [lessonManagement::class, 'update_component'])->name('update_component');
 Route::delete('/delete_component/{id}', [lessonManagement::class,'delete_component'])->name('delete_component');
+Route::get('/lesson_id/{id}', [lessonManagement::class,'show'])->name('show_lesson');
+Route::post('create_question/{id}',[lessonManagement::class,'storeQuestion']);
+Route::put('update_question/{id}',[lessonManagement::class,'updateQuestion']);
+Route::get('/question_id/{id}', [lessonManagement::class,'showQuestion'])->name('show_question');
+
+
 
 
 

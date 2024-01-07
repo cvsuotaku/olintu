@@ -8,7 +8,6 @@
         <div class="flex items-start">
             <h1 class="text-2xl font-semibold mt-1">OLINTU Dashboard</h1>
         </div>
-
         <div id="guest-login">
             <a href="{{route('login')}}">Login</a>&nbsp;
             &nbsp;&nbsp;&nbsp;<a href="{{route('register')}}">Register</a>
@@ -26,6 +25,14 @@
                     <p id="user-profile-number" class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none"></p>
                 </div>
                 <ul class="py-1" role="none">
+                    @if(Session::get('user')->role == 1)
+                    <li>
+                        <a href="{{ URL('account_management') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Account Management</a>
+                    </li>
+                    <li>
+                        <a href="{{ URL('lesson_management') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Lesson Management</a>
+                    </li>
+                    @endif
                     <li>
                         <a href="{{ route('grade.records') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Records</a>
                     </li>
@@ -49,6 +56,15 @@
             <h2 class="text-2xl font-semibold mb-4">Topics</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 <!-- Topic Card -->
+                <div class="p-4 rounded shadow" style="background: #FFDAC2;">
+                    <h3 class="text-3xl mb-2">PHP 101</h3>
+                    <p class="text-gray-600 h-16">Learn the basic features of PHP</p>
+                    <button class="bg-black text-white px-4 py-2 my-2 mx-auto block rounded shadow">
+                        <a href="{{ route('dashboard.topic', ['value' => 1]) }}">
+                            Learn Now!
+                        </a>
+                    </button>
+                </div>
                 <div class="p-4 rounded shadow" style="background: #FFDAC2;">
                     <h3 class="text-3xl mb-2">Introduction to PHP</h3>
                     <p class="text-gray-600 h-16">Learn the basic features of PHP</p>
@@ -121,11 +137,30 @@
                         </a>
                     </button>
                 </div>
-
                 <!-- Repeat for other topics -->
             </div>
         </section>
-
+        <section>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">  
+                    @foreach($lessons as $lesson)
+                    <div class="p-4 rounded shadow" style="background: #FFDAC2;">
+                        <h3 class="text-3xl mb-2">{{$lesson->title}}</h3>
+                        <p class="text-gray-600 h-16">
+                            @if($lesson->summary == null)
+                                Learn the basic features of PHP
+                            @else
+                               {{$lesson->summary}}
+                            @endif
+                        </p>
+                        <button class="bg-black text-white px-4 py-2 my-2 mx-auto block rounded shadow">
+                            <a href="{{ URL('lesson_id/'.$lesson->lessonId) }}">
+                                Learn Now!
+                            </a>
+                        </button>
+                    </div>
+                @endforeach
+                </div>
+        </section>
         <section id="learn-progress" class="mb-8">
             <h2 class="text-2xl font-semibold mb-4">Lesson Progress</h2>
 
