@@ -20,6 +20,11 @@
         </div>
         
         <div class="relative overflow-x-auto mb-10">
+            @if (session('successdelete'))
+            <span class="text-sm text-red-500" >
+                {{ session('successdelete') }}
+            </span>
+            @endif
             <table class="w-full text-sm text-left text-center rtl:text-right text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
@@ -88,8 +93,11 @@
                                                 </div>
                                                 <!-- Modal footer -->
                                                 <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
-                                                    <button data-modal-hide="delete-modal-{{$student->STUDENT_ID}}" type="button" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Yes</button>
-                                                    <button data-modal-hide="delete-modal-{{$student->STUDENT_ID}}" type="button" class="ms-3 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">No</button>
+                                                    <form method="POST" action="{{URL('delete_account/'.$student->STUDENT_ID)}}">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <button type="Submit" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Yes</button>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
@@ -119,8 +127,11 @@
                                                 </div>
                                                 <!-- Modal footer -->
                                                 <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
-                                                    <button data-modal-hide="reset-modal-{{$student->STUDENT_ID}}" type="button" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Yes</button>
-                                                    <button data-modal-hide="reset-modal-{{$student->STUDENT_ID}}" type="button" class="ms-3 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">No</button>
+                                                    <form method="POST" action="{{URL('password_reset/'.$student->STUDENT_ID)}}">
+                                                        @csrf
+                                                        @method('put')
+                                                        <button data-modal-hide="reset-modal-{{$student->STUDENT_ID}}" type="submit" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Yes</button>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>

@@ -60,4 +60,12 @@ Route::get('/settings_update', [SettingController::class,'updateAccount'])->name
 Route::get('/records_grade', [RecordsController::class, 'retrieveGrade'])->name('grade.records');
 
 Route::get('/account_management', [accountManagement::class, 'index'])->name('account_managementss');
-Route::get('/account_edit/{id}', [accountManagement::class, 'edit'])->name('account_managementss');
+Route::get('/account_edit/{id}', [accountManagement::class, 'edit'])->name('account_edit');
+Route::put('/update_username/{id}', [accountManagement::class, 'updateUsername'])->name('account_username_update');
+Route::put('/update_info/{id}', [accountManagement::class, 'updateUserData'])->name('account_info_update');
+Route::delete('/delete_account/{id}', [accountManagement::class,'destroy'])->name('account_delete');
+Route::put('/password_reset/{id}', [accountManagement::class,'resetPassword'])->name('account_reset');
+
+
+
+

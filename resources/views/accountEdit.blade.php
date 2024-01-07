@@ -21,16 +21,24 @@
             <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
                 <div class="max-w-xl">
                     {{-- @include('profile.partials.update-profile-information-form') --}}
-                    <form class="">
+                    <form class="" method="POST"  action="{{URL('update_username/'.$student->STUDENT_ID)}}">
+                        @csrf
+                        @method('put')
                         <div class="mb-5">
                             <label for="text" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">UserName</label>
                             <input type="text" name="username" id="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="xx-xx-xx" required value="{{$student->USERNAME}}">
                         </div>
+                    
                         {{-- <div class="mb-5">
                         <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your password</label>
                         <input type="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                         </div> --}}
                         <button type="submit" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Update Username</button>
+                        @if (session('success'))
+                        <span class="text-sm text-red-500" >
+                            {{ session('success') }}
+                        </span>
+                    @endif
                     </form>
                 </div>
             </div>
@@ -38,7 +46,9 @@
             <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
                 <div class="max-w-xl">
                     {{-- @include('profile.partials.update-profile-information-form') --}}
-                    <form class="">
+                    <form class="" method="POST" action="{{URL('update_info/'.$student->STUDENT_ID)}}">
+                        @csrf
+                        @method('PUT')
                         <div class="mb-5">
                             <label for="fname" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">First Name</label>
                             <input type="text" name="fname" id="fname" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="xx-xx-xx" required value="{{$student->FIRST_NAME}}">
@@ -53,32 +63,22 @@
                         </div>
                         <div class="mb-5">
                             <label for="studentn" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Student Number</label>
-                            <input type="text" name="studentn" id="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="xx-xx-xx" required value="{{$student->STUDENT_NUMBER}}">
+                            <input type="text" name="snum" id="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="xx-xx-xx" required value="{{$student->STUDENT_NUMBER}}">
                         </div>
                         {{-- <div class="mb-5">
                         <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your password</label>
                         <input type="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                         </div> --}}
                         <button type="submit" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Update Info</button>
+                        @if (session('successinfo'))
+                        <span class="text-sm text-red-500" >
+                            {{ session('successinfo') }}
+                        </span>
+                        @endif
                     </form>
                 </div>
             </div>
 
-            <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    {{-- @include('profile.partials.update-profile-information-form') --}}
-                    <form class="">
-                        <div class="mb-5">
-                            <label for="text" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Reset Password</label>
-                        </div>
-                        {{-- <div class="mb-5">
-                        <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your password</label>
-                        <input type="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
-                        </div> --}}
-                        <button type="button" data-modal-target="delete-modal-{{$student->STUDENT_ID}}" data-modal-toggle="delete-modal-{{$student->STUDENT_ID}}" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Reset Password</button>
-                    </form>
-                </div>
-            </div>
 
         </div>
     </div>
