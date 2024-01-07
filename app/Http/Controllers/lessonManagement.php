@@ -160,6 +160,7 @@ class lessonManagement extends Controller
     public function update(Request $request, string $id)
     {
         //
+        
     }
 
     /**
@@ -168,5 +169,12 @@ class lessonManagement extends Controller
     public function destroy(string $id)
     {
         //
+
+    }
+    public function destroyLesson($id = null){
+
+        $lesson = lsesson::where('lessonId',$id)->first();
+        $lesson->delete();
+        return redirect()->back()->with(['successdelete'=>'The Lesson Info have been deleted successfully']);
     }
 }

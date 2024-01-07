@@ -78,6 +78,7 @@ Route::get('/lesson_id/{id}', [lessonManagement::class,'show'])->name('show_less
 Route::post('create_question/{id}',[lessonManagement::class,'storeQuestion']);
 Route::put('update_question/{id}',[lessonManagement::class,'updateQuestion']);
 Route::get('/question_id/{id}', [lessonManagement::class,'showQuestion'])->name('show_question');
+Route::delete('/delete_lesson/{id}', [lessonManagement::class,'destroyLesson']);
 
 
 
