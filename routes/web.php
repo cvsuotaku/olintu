@@ -12,6 +12,7 @@ use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TopicController;
 use App\Http\Controllers\RecordsController;
 use App\Http\Controllers\accountManagement;
+use App\Http\Controllers\lessonManagement;
 
 
 /*
@@ -65,6 +66,18 @@ Route::put('/update_username/{id}', [accountManagement::class, 'updateUsername']
 Route::put('/update_info/{id}', [accountManagement::class, 'updateUserData'])->name('account_info_update');
 Route::delete('/delete_account/{id}', [accountManagement::class,'destroy'])->name('account_delete');
 Route::put('/password_reset/{id}', [accountManagement::class,'resetPassword'])->name('account_reset');
+
+Route::get('/lesson_management', [lessonManagement::class, 'index'])->name('lesson_managementss');
+Route::post('/create_lesson', [lessonManagement::class, 'storeLesson'])->name('lesson_store');
+Route::get('/web_builder/{id}', [lessonManagement::class, 'create'])->name('lesson_builder');
+Route::post('/create_component/{id}', [lessonManagement::class, 'storeComponent'])->name('lesson_builder');
+Route::put('/update_lesson_name/{id}', [lessonManagement::class, 'update_lesson_name'])->name('lesson_update_name');
+Route::put('/update_component/{id}', [lessonManagement::class, 'update_component'])->name('update_component');
+Route::delete('/delete_component/{id}', [lessonManagement::class,'delete_component'])->name('delete_component');
+
+
+
+
 
 
 

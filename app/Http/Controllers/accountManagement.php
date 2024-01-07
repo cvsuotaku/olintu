@@ -90,7 +90,6 @@ class accountManagement extends Controller
         $student->save();
         return redirect()->route('account_managementss')->with(['successdelete'=>'The student Password have been reset successfully']);
     }
-
     /**
      * Update the specified resource in storage.
      */
