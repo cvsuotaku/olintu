@@ -22,7 +22,11 @@
             <div class="z-50 hidden ml-2 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600" id="dropdown-user">
                 <div class="px-4 py-3" role="none">
                     <p id="user-profile-name" class="text-sm text-gray-900 dark:text-white" role="none"></p>
-                    <p id="user-profile-number" class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none"></p>
+                    @if(Session::get('user')->role == 1)
+                        <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">Admin</p>
+                    @else
+                        <p id="user-profile-number" class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none"></p>
+                    @endif
                 </div>
                 <ul class="py-1" role="none">
                     @if(Session::get('user')->role == 1)
