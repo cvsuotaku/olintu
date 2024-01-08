@@ -8,11 +8,6 @@
         <div class="flex items-start">
             <h1 class="text-2xl font-semibold mt-1">OLINTU Dashboard</h1>
         </div>
-        <div id="guest-login">
-            <a href="{{route('login')}}">Login</a>&nbsp;
-            &nbsp;&nbsp;&nbsp;<a href="{{route('register')}}">Register</a>
-
-        </div>
         <div id="user-profile" class="flex items-start">
             <button type="button" class="flex text-lg bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" aria-expanded="false" data-dropdown-toggle="dropdown-user">
                 <span class="sr-only">Open user menu</span>
@@ -60,15 +55,6 @@
             <h2 class="text-2xl font-semibold mb-4">Topics</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 <!-- Topic Card -->
-                <div class="p-4 rounded shadow" style="background: #FFDAC2;">
-                    <h3 class="text-3xl mb-2">PHP 101</h3>
-                    <p class="text-gray-600 h-16">Learn the basic features of PHP</p>
-                    <button class="bg-black text-white px-4 py-2 my-2 mx-auto block rounded shadow">
-                        <a href="{{ route('dashboard.topic', ['value' => 1]) }}">
-                            Learn Now!
-                        </a>
-                    </button>
-                </div>
                 <div class="p-4 rounded shadow" style="background: #FFDAC2;">
                     <h3 class="text-3xl mb-2">Introduction to PHP</h3>
                     <p class="text-gray-600 h-16">Learn the basic features of PHP</p>
