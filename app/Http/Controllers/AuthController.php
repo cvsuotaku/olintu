@@ -16,11 +16,13 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
+        
         $credentials = $request->only('username', 'password');
 
         if (Auth::guard('student')->attempt($credentials, $request->get('remember'))) {
             // Authentication passed for student
             Session::put('user', Auth::guard('student')->user());
+            
             Session::put('check', Auth::guard('student')->check());
             return redirect()->intended('/student/dashboard');
         }

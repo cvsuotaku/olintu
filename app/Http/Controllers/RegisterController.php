@@ -36,6 +36,8 @@ class RegisterController extends Controller
                 'FIRST_NAME' => $request->input('first_name'),
                 'MIDDLE_NAME' => $request->input('middle_name'),
                 'LAST_NAME' => $request->input('last_name'),
+                'role' => null,
+                
             ]);
             DB::commit();
             // Redirect the user after registration
