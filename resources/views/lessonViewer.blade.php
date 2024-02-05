@@ -38,12 +38,17 @@
                         </p>
                     </div> 
                     @break
-                @case('code')
+                @case('code_snipet')
                     <div class="demo-code ">
                         <code>
                             {{$component->data}}
                         </code>
                     </div>
+                    @break
+                @case('code')
+                    <a href="{{ route('ide', ['title' => $component->data]) }}" target="_blank">
+                        <button class="run-button">try this code</button>
+                     </a>
                     @break
                 @case('note')
                     <div class="flex flex-wrap w-full mb-10 flex-col">

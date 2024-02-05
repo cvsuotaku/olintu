@@ -20,7 +20,7 @@
         <div class="flex flex-wrap w-full mb-10 flex-col">
             <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Lesson Management:</h1>
         </div>
-
+        
         <div class="relative overflow-x-auto mb-10">
             @if (session('successdelete'))
             <span class="text-sm text-red-500" >
@@ -50,7 +50,6 @@
                     <div class="p-4 md:p-5 space-y-4">
                         <form class="" method="POST"  action="{{URL('create_lesson')}}">
                             @csrf
-
                             <div class="mb-5">
                                 <label for="text" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Lesson Name</label>
                                 <input type="text" name="lesson" id="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="xx-xx-xx" required value="">

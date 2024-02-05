@@ -6,7 +6,7 @@ use App\Models\lessoComponent;
 use Illuminate\Http\Request;
 use App\Models\lsesson;
 use App\Models\question;
-
+use Storage;
 class lessonManagement extends Controller
 {
     /**
@@ -44,6 +44,23 @@ class lessonManagement extends Controller
         return redirect()->back()->with(['success'=>'The component have been save successfully']);
     }
 
+    public function createCode($id = null, Request $request){
+        $request->validate([
+            'title' => ['required'],
+            'code' => ['required', 'string'],
+        ]);
+        $input = $request->all();
+        $format_title = str_replace(' ','_',$input['title']);
+        lessoComponent::create([
+            'lessonId'=>$id,
+            'type'=>'code',
+            'data'=>$format_title,  
+        ]);
+
+        // editing for creating txt file
+        Storage::put($format_title.'.txt', $input['code']);
+        return redirect()->back()->with(['success'=>'The component have been save successfully']);
+    }
     public function update_lesson_name($id = null , Request $request){
         $lesson = lsesson::where('lessonId',$id)->with(['component'])->first(); 
         $request->validate([

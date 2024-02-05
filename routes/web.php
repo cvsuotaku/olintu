@@ -71,6 +71,8 @@ Route::get('/lesson_management', [lessonManagement::class, 'index'])->name('less
 Route::post('/create_lesson', [lessonManagement::class, 'storeLesson'])->name('lesson_store');
 Route::get('/web_builder/{id}', [lessonManagement::class, 'create'])->name('lesson_builder');
 Route::post('/create_component/{id}', [lessonManagement::class, 'storeComponent'])->name('lesson_builder');
+Route::post('/create_code/{id}', [lessonManagement::class, 'createCode'])->name('code_builder');
+
 Route::put('/update_lesson_name/{id}', [lessonManagement::class, 'update_lesson_name'])->name('lesson_update_name');
 Route::put('/update_component/{id}', [lessonManagement::class, 'update_component'])->name('update_component');
 Route::delete('/delete_component/{id}', [lessonManagement::class,'delete_component'])->name('delete_component');
