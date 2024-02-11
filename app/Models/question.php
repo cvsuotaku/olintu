@@ -20,5 +20,9 @@ class question extends Model
         'answer',
     ];
 
+    public static function getByLessonId($lesson_id)
+    {
+        return self::where('lessonId', $lesson_id)->get();
+    }
 
 }

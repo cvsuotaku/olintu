@@ -46,9 +46,11 @@
                     </div>
                     @break
                 @case('code')
-                    <a href="{{ route('ide', ['title' => $component->data]) }}" target="_blank">
-                        <button class="run-button">try this code</button>
-                     </a>
+                    <div class="flex flex-wrap w-full mb-10 flex-col">
+                        <a href="{{ route('ide', ['title' => $component->data]) }}" target="_blank">
+                            <button class="run-button">try this code</button>
+                        </a>
+                    </div>
                     @break
                 @case('note')
                     <div class="flex flex-wrap w-full mb-10 flex-col">
@@ -57,15 +59,7 @@
                         </p>
                     </div> 
                     @break
-                @case('try')
-                    <div class="flex flex-wrap w-full mb-10 flex-col">
-                        <a href="{{ route('ide', ['topic' => 1, 'exercise' => 1]) }}" target="_blank">
-                            <button class="run-button">try this code</button>
-                        </a>                    
-                    </div> 
-                    @break
-                @default
-                    
+                @default                    
             @endswitch
             @if (session('success'))
                 <span class="text-sm text-red-500" >

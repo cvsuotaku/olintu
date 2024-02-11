@@ -157,10 +157,18 @@ class lessonManagement extends Controller
 
     public function showQuestion($id){
         $lesson = lsesson::where('lessonId',$id)->with(['question'])->first();        
-        $answer = question::get()->random();
-        $answer1 = $answer->pluck('answer')->shuffle();
         // dd($answer1);
-        return view('questionViewer',['lesson'=>$lesson,'dummy'=>$answer1]);
+        // $questions = question::getByLessonId(1)->map->getAttributes()->shuffle()->all();
+        $questions = question::where('lessonid',1)->get();
+        $questions->map(function($question){
+            if($question->type == "multiple"){
+                return $question->answer = array([$question->answer,'fake_answ',"fake"]);
+            }
+        });
+        $shufle_question = $questions->shuffle();        
+        $answer = $questions->pluck('answer');
+        // dd($questions);
+        return view('questionViewer',['lesson'=>$lesson,'questions'=>$shufle_question]);
     }
 
     /**

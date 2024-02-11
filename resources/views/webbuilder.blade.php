@@ -106,8 +106,6 @@
                                         <option value="span">Sentence</option>
                                         <option value="paragraph">Paragraph</option>
                                         <option value="note">Note</option>
-                                        <option value="try">try</option>
-                                        <option value="code_snipet">code snippet</option>
                                     </select>
                                     <br>
                                     <label for="text" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Data</label>
@@ -178,8 +176,8 @@
                                                                 <option value="h1">Heading</option>
                                                                 <option value="span">Sentence</option>
                                                                 <option value="paragraph">Paragraph</option>
-                                                                <option value="code">Code</option>
-                                                                <option value="note">Node</option>
+                                                                <option value="note">Note</option>
+                                                                <option value="code_snipet">code snippet</option>
                                                             </select>
                                                             <br>
                                                             <label for="text" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Data</label>
