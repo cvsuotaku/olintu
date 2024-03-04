@@ -10,11 +10,10 @@
 <section class="mb-8">
     <div class="container px-5 py-20 mx-auto  items-center text-center">
         <div>
-            <button type="submit" style="float: left;" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-green-700 hover:bg-green-800 dark:focus:ring-primary-800">
-                <a href="{{route('student.dashboard')}}" >
-                    Back
-                </a>
-            </button>
+            <a href="{{URL("/student/dashboard")}}"  style="float: left;" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-green-700 hover:bg-green-800 dark:focus:ring-primary-800" >
+                Back
+            </a>
+
         </div>
         
         <div class="flex flex-wrap w-full mb-10 flex-col">
