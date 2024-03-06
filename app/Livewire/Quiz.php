@@ -8,21 +8,28 @@ use Illuminate\Support\Facades\Validator;
 class Quiz extends Component
 {
     public $question ;
-    public $answer = [];
-    public function mount($questions){
+    public $u_answer = [];
+    public $answers;
+    public function mount($questions,$answer){
         $this->question = $questions;
+        $this->answers = $answer;
     }
     public function render()
     {
-        // dd($this->question);
+        // dd($this->question->pluck(function($question){
+        //     if($question)
+        //     return 
+        // }));
+        // dd($this->answers);
         return view('livewire.quiz',['questions'=>$this->question]);
     }
     public function send_answer(){
         $validator = Validator::make(
-            ['answer'=>$this->answer],
-            ['answer'=>"required"],
-
+            ['u_answer'=>$this->u_answer],
+            ['u_answer'=>"required"],
         )->validate();
-        dd($this->answer);  
+        dd( $this->answers);
+        $result = array_intersect($this->u_answer, $this->answers);
+        dd($result);  
     }
 }

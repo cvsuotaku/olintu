@@ -160,15 +160,15 @@ class lessonManagement extends Controller
         // dd($answer1);
         // $questions = question::getByLessonId(1)->map->getAttributes()->shuffle()->all();
         $questions = question::where('lessonid',1)->get();
+        $shufle_question = $questions->shuffle();        
+        $answer = $questions->pluck('answer');
         $questions->map(function($question){
             if($question->type == "multiple"){
                 return $question->answer = array([$question->answer,'fake_answ',"fake"]);
             }
         });
-        $shufle_question = $questions->shuffle();        
-        $answer = $questions->pluck('answer');
-        // dd($questions);
-        return view('questionViewer',['lesson'=>$lesson,'questions'=>$shufle_question]);
+        // dd($answer);
+        return view('questionViewer',['lesson'=>$lesson,'questions'=>$shufle_question,"answer"=>$answer ]);
     }
 
     /**

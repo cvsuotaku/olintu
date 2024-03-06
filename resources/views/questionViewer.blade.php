@@ -6,7 +6,7 @@
     </div>
 </nav>
 <section class="mb-8">
-    <livewire:quiz :questions="$questions">
+    <livewire:quiz :questions="$questions" :answer="$answer">
     {{-- @livewire('quiz',['questions'=>$questions]) --}}
  </section>
 
