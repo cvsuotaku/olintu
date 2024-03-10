@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 use App\Models\Grade;
 use App\Models\lsesson;
+use App\Models\progress;
 class DashboardController extends Controller
 {
     protected $grade;

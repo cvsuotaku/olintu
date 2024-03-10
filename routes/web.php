@@ -13,7 +13,7 @@ use App\Http\Controllers\TopicController;
 use App\Http\Controllers\RecordsController;
 use App\Http\Controllers\accountManagement;
 use App\Http\Controllers\lessonManagement;
-
+use App\Livewire\Quiz;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,7 +79,7 @@ Route::delete('/delete_component/{id}', [lessonManagement::class,'delete_compone
 Route::get('/lesson_id/{id}', [lessonManagement::class,'show'])->name('show_lesson');
 Route::post('create_question/{id}',[lessonManagement::class,'storeQuestion']);
 Route::put('update_question/{id}',[lessonManagement::class,'updateQuestion']);
-Route::get('/question_id/{id}', [lessonManagement::class,'showQuestion'])->name('show_question');
+Route::get('/question_id/{id}', Quiz::class)->name('show_question');
 Route::delete('/delete_lesson/{id}', [lessonManagement::class,'destroyLesson']);
 
 

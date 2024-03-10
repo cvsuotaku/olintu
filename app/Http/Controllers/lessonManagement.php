@@ -168,7 +168,7 @@ class lessonManagement extends Controller
             }
         });
         // dd($answer);
-        return view('questionViewer',['lesson'=>$lesson,'questions'=>$shufle_question,"answer"=>$answer ]);
+        // return view('questionViewer',['lesson's=>$lesson,'questions'=>$shufle_question,"answer"=>$answer ]);
     }
 
     /**
