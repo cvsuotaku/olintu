@@ -8,12 +8,6 @@
         <div class="flex items-start">
             <h1 class="text-2xl font-semibold mt-1">OLINTU Dashboard</h1>
         </div>
-
-        <div id="guest-login">
-            <a href="{{route('login')}}">Login</a>&nbsp;
-            &nbsp;&nbsp;&nbsp;<a href="{{route('register')}}">Register</a>
-
-        </div>
         <div id="user-profile" class="flex items-start">
             <button type="button" class="flex text-lg bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" aria-expanded="false" data-dropdown-toggle="dropdown-user">
                 <span class="sr-only">Open user menu</span>
@@ -23,9 +17,21 @@
             <div class="z-50 hidden ml-2 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600" id="dropdown-user">
                 <div class="px-4 py-3" role="none">
                     <p id="user-profile-name" class="text-sm text-gray-900 dark:text-white" role="none"></p>
-                    <p id="user-profile-number" class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none"></p>
+                    @if(Session::get('user')->role == 1)
+                        <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">Admin</p>
+                    @else
+                        <p id="user-profile-number" class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none"></p>
+                    @endif
                 </div>
                 <ul class="py-1" role="none">
+                    @if(Session::get('user')->role == 1)
+                    <li>
+                        <a href="{{ URL('account_management') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Account Management</a>
+                    </li>
+                    <li>
+                        <a href="{{ URL('lesson_management') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Lesson Management</a>
+                    </li>
+                    @endif
                     <li>
                         <a href="{{ route('grade.records') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Records</a>
                     </li>
@@ -121,11 +127,30 @@
                         </a>
                     </button>
                 </div>
-
                 <!-- Repeat for other topics -->
             </div>
         </section>
-
+        <section>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">  
+                    @foreach($lessons as $lesson)
+                    <div class="p-4 rounded shadow" style="background: #FFDAC2;">
+                        <h3 class="text-3xl mb-2">{{$lesson->title}}</h3>
+                        <p class="text-gray-600 h-16">
+                            @if($lesson->summary == null)
+                                Learn the basic features of PHP
+                            @else
+                               {{$lesson->summary}}
+                            @endif
+                        </p>
+                        <button class="bg-black text-white px-4 py-2 my-2 mx-auto block rounded shadow">
+                            <a href="{{ URL('lesson_id/'.$lesson->lessonId) }}">
+                                Learn Now!
+                            </a>
+                        </button>
+                    </div>
+                @endforeach
+                </div>
+        </section>
         <section id="learn-progress" class="mb-8">
             <h2 class="text-2xl font-semibold mb-4">Lesson Progress</h2>
 
@@ -179,38 +204,12 @@
                                 </svg>
                             </dd>
                         </dl>
-                        <dl class="flex items-center justify-between">
-                            <dt class="text-gray-500 dark:text-gray-400 text-sm font-normal">Topic 1 - Introduction to PHP:</dt>
-                            <dd id="t1" class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-gray-600 dark:text-gray-300"></dd>
-                        </dl>
-                        <dl class="flex items-center justify-between">
-                            <dt class="text-gray-500 dark:text-gray-400 text-sm font-normal">Topic 2 - PHP Installation:</dt>
-                            <dd id="t2" class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-gray-600 dark:text-gray-300">Not Started</dd>
-                        </dl>
-                        <dl class="flex items-center justify-between">
-                            <dt class="text-gray-500 dark:text-gray-400 text-sm font-normal">Topic 3 - PHP Common Use:</dt>
-                            <dd id="t3" class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-gray-600 dark:text-gray-300">Not Started</dd>
-                        </dl>
-                        <dl class="flex items-center justify-between">
-                            <dt class="text-gray-500 dark:text-gray-400 text-sm font-normal">Topic 4 - Introduction to Array:</dt>
-                            <dd id="t4" class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-gray-600 dark:text-gray-300">Not Started</dd>
-                        </dl>
-                        <dl class="flex items-center justify-between">
-                            <dt class="text-gray-500 dark:text-gray-400 text-sm font-normal">Topic 5 - Web Concepts:</dt>
-                            <dd id="t5" class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-gray-600 dark:text-gray-300">Not Started</dd>
-                        </dl>
-                        <dl class="flex items-center justify-between">
-                            <dt class="text-gray-500 dark:text-gray-400 text-sm font-normal">Topic 6 - Advanced PHP:</dt>
-                            <dd id="t6" class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-gray-600 dark:text-gray-300">Not Started</dd>
-                        </dl>
-                        <dl class="flex items-center justify-between">
-                            <dt class="text-gray-500 dark:text-gray-400 text-sm font-normal">Topic 7 - Database Connection:</dt>
-                            <dd id="t7" class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-gray-600 dark:text-gray-300">Not Started</dd>
-                        </dl>
-                        <dl class="flex items-center justify-between">
-                            <dt class="text-gray-500 dark:text-gray-400 text-sm font-normal">Topic 8 - OOP Concept:</dt>
-                            <dd id="t8" class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-gray-600 dark:text-gray-300">Not Started</dd>
-                        </dl>
+                        @foreach($progress as $prog)
+                            <dl class="flex items-center justify-between">
+                                <dt class="text-gray-500 dark:text-gray-400 text-sm font-normal">{{$prog->lesson->title}}</dt>
+                                <dd id="t1" class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-gray-600 dark:text-gray-300">{{$prog->percent}}%</dd>
+                            </dl>
+                        @endforeach
                     </div>
                 </div>
             </div>
