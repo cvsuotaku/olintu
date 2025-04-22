@@ -17,7 +17,7 @@
         <br>
         <p>PHP is a open source general-purpose scripting language that is specially designed for web development and can be embedded into HTML. The term PHP is an acronym for PHP: Hypertext Preprocessor. PHP is a server-side scripting language designed specifically for web development. It is open-source which means it is free to download and use. It is very simple to learn and use. The files have the extension <code style="background: #F0F0F0; border-radius: 4px; padding: 3px;">“.php”</code>. </p>
         <br>
-        <div class="demo-code ">
+        <div class="demo-code">
             <code>
                 <span style="color: black">
                     &lt;!DOCTYPE html&gt;<br>

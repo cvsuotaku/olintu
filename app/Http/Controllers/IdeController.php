@@ -8,11 +8,10 @@ use Illuminate\Support\Facades\File;
 class IdeController extends Controller
 {
     public function loadCode(Request $request) {
-        $topic = $request->input('topic');
-        $exercise = $request->input('exercise');
-
-        $filePath = public_path('/code/' . $topic . '/' . $exercise . '.txt');
+        $title = $request->input('title');
+        $filePath = storage_path('/app/' . $title. '.txt');
         $fileContents = File::get($filePath);
         return view('ide', compact('fileContents'));
+        
     }
 }

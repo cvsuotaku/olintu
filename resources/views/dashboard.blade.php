@@ -8,35 +8,44 @@
         <div class="flex items-start">
             <h1 class="text-2xl font-semibold mt-1">OLINTU Dashboard</h1>
         </div>
-
-        <div id="guest-login">
-            <a href="{{route('login')}}">Login</a>&nbsp;
-            &nbsp;&nbsp;&nbsp;<a href="{{route('register')}}">Register</a>
-
-        </div>
         <div id="user-profile" class="flex items-start">
             <button type="button" class="flex text-lg bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" aria-expanded="false" data-dropdown-toggle="dropdown-user">
                 <span class="sr-only">Open user menu</span>
                 <img class="w-8 h-8 rounded-full" src="{{ asset('images/user-icon.png') }}" alt="user photo">
             </button>
-
-            <div class="z-50 hidden ml-2 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600" id="dropdown-user">
-                <div class="px-4 py-3" role="none">
-                    <p id="user-profile-name" class="text-sm text-gray-900 dark:text-white" role="none"></p>
-                    <p id="user-profile-number" class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none"></p>
+            @if(!empty(Session::get('user')->role))
+                <div class="z-50 hidden ml-2 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600" id="dropdown-user">
+                    <div class="px-4 py-3" role="none">
+                        <p id="user-profile-name" class="text-sm text-gray-900 dark:text-white" role="none"></p>
+                            @if(Session::get('user')->role == 1)
+                                <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">Admin</p>
+                            @else
+                                <p id="user-profile-number" class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none"></p>
+                            @endif
+                    </div>
+                    <ul class="py-1" role="none">
+                        @if(!empty(Session::get('user')->role))
+                            @if(Session::get('user')->role == 1)
+                            <li>
+                                <a href="{{ URL('account_management') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Account Management</a>
+                            </li>
+                            <li>
+                                <a href="{{ URL('lesson_management') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Lesson Management</a>
+                            </li>
+                            @endif
+                        @endif
+                        <li>
+                            <a href="{{ route('grade.records') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Records</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('settings') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Settings</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('logout') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Sign out</a>
+                        </li>
+                    </ul>
                 </div>
-                <ul class="py-1" role="none">
-                    <li>
-                        <a href="{{ route('grade.records') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Records</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('settings') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Settings</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('logout') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Sign out</a>
-                    </li>
-                </ul>
-            </div>
+            @endif
         </div>
     </nav>
 
@@ -121,11 +130,35 @@
                         </a>
                     </button>
                 </div>
-
                 <!-- Repeat for other topics -->
             </div>
         </section>
+        <section>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                @if(!empty(Session::get('user')->role))
+                    @if(count($lessons)>0)
+                        @foreach($lessons as $lesson)
+                            <div class="p-4 rounded shadow" style="background: #FFDAC2;">
+                                <h3 class="text-3xl mb-2">{{$lesson->title}}</h3>
+                                <p class="text-gray-600 h-16">
+                                    @if($lesson->summary == null)
+                                        Learn the basic features of PHP
+                                    @else
+                                    {{$lesson->summary}}
+                                    @endif
+                                </p>
+                                <button class="bg-black text-white px-4 py-2 my-2 mx-auto block rounded shadow">
+                                    <a href="{{ URL('lesson_id/'.$lesson->lessonId) }}">
+                                        Learn Now!
+                                    </a>
+                                </button>
+                            </div>
+                        @endforeach
+                    @endif
+                @endif
 
+            </div>
+        </section>
         <section id="learn-progress" class="mb-8">
             <h2 class="text-2xl font-semibold mb-4">Lesson Progress</h2>
 
@@ -150,69 +183,45 @@
                         </div>
                     </div>
                 </div>
-                <button class="bg-black text-white px-4 py-2 my-2 mx-auto block rounded shadow">
-                    <a href="{{route('grade.records')}}">
-                        Records
-                    </a>
-                </button>
-                <div class="bg-gray-50 dark:bg-gray-700 p-3 rounded-lg">
-                    <div class="grid grid-cols-3 gap-3 mb-2">
-                        <dl class="bg-orange-50 dark:bg-gray-600 rounded-lg flex flex-col items-center justify-center h-[78px]">
-                            <dt id="to-do" class="w-8 h-8 rounded-full bg-orange-100 dark:bg-gray-500 text-orange-600 dark:text-orange-300 text-sm font-medium flex items-center justify-center mb-1"></dt>
-                            <dd class="text-orange-600 dark:text-orange-300 text-sm font-medium">To do</dd>
-                        </dl>
-                        <dl class="bg-teal-50 dark:bg-gray-600 rounded-lg flex flex-col items-center justify-center h-[78px]">
-                            <dt id="in-progress" class="w-8 h-8 rounded-full bg-teal-100 dark:bg-gray-500 text-teal-600 dark:text-teal-300 text-sm font-medium flex items-center justify-center mb-1"></dt>
-                            <dd class="text-teal-600 dark:text-teal-300 text-sm font-medium">In progress</dd>
-                        </dl>
-                        <dl class="bg-blue-50 dark:bg-gray-600 rounded-lg flex flex-col items-center justify-center h-[78px]">
-                            <dt id="done" class="w-8 h-8 rounded-full bg-blue-100 dark:bg-gray-500 text-blue-600 dark:text-blue-300 text-sm font-medium flex items-center justify-center mb-1"></dt>
-                            <dd class="text-blue-600 dark:text-blue-300 text-sm font-medium">Done</dd>
-                        </dl>
+
+                @if(!empty(Session::get('user')->role))
+                    <div class="bg-gray-50 dark:bg-gray-700 p-3 rounded-lg">
+                        <div class="grid grid-cols-3 gap-3 mb-2">
+                            <dl class="bg-orange-50 dark:bg-gray-600 rounded-lg flex flex-col items-center justify-center h-[78px]">
+                                <dt id="to-do" class="w-8 h-8 rounded-full bg-orange-100 dark:bg-gray-500 text-orange-600 dark:text-orange-300 text-sm font-medium flex items-center justify-center mb-1"></dt>
+                                <dd class="text-orange-600 dark:text-orange-300 text-sm font-medium">To do</dd>
+                            </dl>
+                            <dl class="bg-teal-50 dark:bg-gray-600 rounded-lg flex flex-col items-center justify-center h-[78px]">
+                                <dt id="in-progress" class="w-8 h-8 rounded-full bg-teal-100 dark:bg-gray-500 text-teal-600 dark:text-teal-300 text-sm font-medium flex items-center justify-center mb-1"></dt>
+                                <dd class="text-teal-600 dark:text-teal-300 text-sm font-medium">In progress</dd>
+                            </dl>
+                            <dl class="bg-blue-50 dark:bg-gray-600 rounded-lg flex flex-col items-center justify-center h-[78px]">
+                                <dt id="done" class="w-8 h-8 rounded-full bg-blue-100 dark:bg-gray-500 text-blue-600 dark:text-blue-300 text-sm font-medium flex items-center justify-center mb-1"></dt>
+                                <dd class="text-blue-600 dark:text-blue-300 text-sm font-medium">Done</dd>
+                            </dl>
+                        </div>
+                        <div id="more-details" class="border-gray-200 border-t dark:border-gray-600 pt-3 mt-3 space-y-2">
+                            <dl class="flex items-center justify-between">
+                                <dt class="text-gray-500 dark:text-gray-400 text-sm font-normal">Task completion rate:</dt>
+                                <dd id="completion-rate" class="bg-green-100 text-green-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-green-900 dark:text-green-300">
+                                    <svg class="w-2.5 h-2.5 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13V1m0 0L1 5m4-4 4 4" />
+                                    </svg>
+                                </dd>
+                            </dl>
+                            @if (count($progress)>0)
+                                @foreach($progress as $prog)
+                                    <dl class="flex items-center justify-between">
+                                        @if($prog->lesson)
+                                            <dt class="text-gray-500 dark:text-gray-400 text-sm font-normal">{{$prog->lesson->title}}</dt>
+                                            <dd id="t1" class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-gray-600 dark:text-gray-300">{{$prog->percent}}%</dd>
+                                        @endif
+                                    </dl>
+                                @endforeach
+                            @endif
+                        </div>
                     </div>
-                    <div id="more-details" class="border-gray-200 border-t dark:border-gray-600 pt-3 mt-3 space-y-2">
-                        <dl class="flex items-center justify-between">
-                            <dt class="text-gray-500 dark:text-gray-400 text-sm font-normal">Task completion rate:</dt>
-                            <dd id="completion-rate" class="bg-green-100 text-green-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-green-900 dark:text-green-300">
-                                <svg class="w-2.5 h-2.5 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 14">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13V1m0 0L1 5m4-4 4 4" />
-                                </svg>
-                            </dd>
-                        </dl>
-                        <dl class="flex items-center justify-between">
-                            <dt class="text-gray-500 dark:text-gray-400 text-sm font-normal">Topic 1 - Introduction to PHP:</dt>
-                            <dd id="t1" class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-gray-600 dark:text-gray-300"></dd>
-                        </dl>
-                        <dl class="flex items-center justify-between">
-                            <dt class="text-gray-500 dark:text-gray-400 text-sm font-normal">Topic 2 - PHP Installation:</dt>
-                            <dd id="t2" class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-gray-600 dark:text-gray-300">Not Started</dd>
-                        </dl>
-                        <dl class="flex items-center justify-between">
-                            <dt class="text-gray-500 dark:text-gray-400 text-sm font-normal">Topic 3 - PHP Common Use:</dt>
-                            <dd id="t3" class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-gray-600 dark:text-gray-300">Not Started</dd>
-                        </dl>
-                        <dl class="flex items-center justify-between">
-                            <dt class="text-gray-500 dark:text-gray-400 text-sm font-normal">Topic 4 - Introduction to Array:</dt>
-                            <dd id="t4" class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-gray-600 dark:text-gray-300">Not Started</dd>
-                        </dl>
-                        <dl class="flex items-center justify-between">
-                            <dt class="text-gray-500 dark:text-gray-400 text-sm font-normal">Topic 5 - Web Concepts:</dt>
-                            <dd id="t5" class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-gray-600 dark:text-gray-300">Not Started</dd>
-                        </dl>
-                        <dl class="flex items-center justify-between">
-                            <dt class="text-gray-500 dark:text-gray-400 text-sm font-normal">Topic 6 - Advanced PHP:</dt>
-                            <dd id="t6" class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-gray-600 dark:text-gray-300">Not Started</dd>
-                        </dl>
-                        <dl class="flex items-center justify-between">
-                            <dt class="text-gray-500 dark:text-gray-400 text-sm font-normal">Topic 7 - Database Connection:</dt>
-                            <dd id="t7" class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-gray-600 dark:text-gray-300">Not Started</dd>
-                        </dl>
-                        <dl class="flex items-center justify-between">
-                            <dt class="text-gray-500 dark:text-gray-400 text-sm font-normal">Topic 8 - OOP Concept:</dt>
-                            <dd id="t8" class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-1 rounded-md dark:bg-gray-600 dark:text-gray-300">Not Started</dd>
-                        </dl>
-                    </div>
-                </div>
+                @endif
             </div>
         </section>
 

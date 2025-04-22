@@ -18,6 +18,11 @@ class Student extends Model implements Authenticatable
     public $timestamps = true;
     protected $guard = "student";
 
+    
+    // In Laravel 6.0+ make sure to also set $keyType
+    protected $keyType = 'string';
+
+
     protected $fillable = [
         'STUDENT_ID',
         'USERNAME',
@@ -26,6 +31,7 @@ class Student extends Model implements Authenticatable
         'MIDDLE_NAME',
         'LAST_NAME',
         'PASSWORD',
+        'role'
     ];
 
     protected $hidden = [
